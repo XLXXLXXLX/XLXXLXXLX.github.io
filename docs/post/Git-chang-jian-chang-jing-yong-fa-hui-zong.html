@@ -11,72 +11,56 @@
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
 <meta name="description" content="对于我个人而言，大概有下面几类git命令：
+
 1. 常用的、不需要记忆的、熟练的git命令
 2. 有用的、需要记忆的、不熟练的git命令
 3. 可以被图形化界面替代的、偶尔用到的git命令
 4. 其他命令
 
+下面主要记录后三种：
 
-
-
-
-
-
-
-
-
-
-克隆时想要自定义本地仓库名：
+- 当具有多个私钥时，git clone 指定私钥克隆
+``
+git clone remote_url.git --config core.sshCommand='ssh -i ~/.ssh/id_rsa'
+``
+- 克隆时想要自定义本地仓库名：
 ``
 git clone https://github.com/libgit2/ libgit2 mylibgit
 ``
-
-GitHub 有一个十分详细的针对数十种项目及语言的`.gitignore`文件列表，你可以在 https://github.com/github/gitignore 找到它.
-
-查看所有未暂存的改动：
+- GitHub 有一个十分详细的针对数十种项目及语言的`.gitignore`文件列表，你可以在 https://github.com/github/gitignore 找到它.
+- 查看所有未暂存的改动：
 `` git diff``
-
-查看所有已暂存的改动：
+- 查看所有已暂存的改动：
 ``git diff --staged``
-
-更好的git log，可以alias到glg：
+- 更好的git log，可以alias到glg：
 `` git log --all --graph --decorate --oneline``
-
-把文件从 Git 仓库中删除（亦即从暂存区域移除），但仍然希望保留在当前工作目录中。">
+- 把文件从 Git 仓库中删除（亦即从暂存区域移除），但仍然希望保留在当前工作目录中。">
 <meta property="og:title" content="Git常见场景用法汇总">
 <meta property="og:description" content="对于我个人而言，大概有下面几类git命令：
+
 1. 常用的、不需要记忆的、熟练的git命令
 2. 有用的、需要记忆的、不熟练的git命令
 3. 可以被图形化界面替代的、偶尔用到的git命令
 4. 其他命令
 
+下面主要记录后三种：
 
-
-
-
-
-
-
-
-
-
-克隆时想要自定义本地仓库名：
+- 当具有多个私钥时，git clone 指定私钥克隆
+``
+git clone remote_url.git --config core.sshCommand='ssh -i ~/.ssh/id_rsa'
+``
+- 克隆时想要自定义本地仓库名：
 ``
 git clone https://github.com/libgit2/ libgit2 mylibgit
 ``
-
-GitHub 有一个十分详细的针对数十种项目及语言的`.gitignore`文件列表，你可以在 https://github.com/github/gitignore 找到它.
-
-查看所有未暂存的改动：
+- GitHub 有一个十分详细的针对数十种项目及语言的`.gitignore`文件列表，你可以在 https://github.com/github/gitignore 找到它.
+- 查看所有未暂存的改动：
 `` git diff``
-
-查看所有已暂存的改动：
+- 查看所有已暂存的改动：
 ``git diff --staged``
-
-更好的git log，可以alias到glg：
+- 更好的git log，可以alias到glg：
 `` git log --all --graph --decorate --oneline``
-
-把文件从 Git 仓库中删除（亦即从暂存区域移除），但仍然希望保留在当前工作目录中。">
+- 把文件从 Git 仓库中删除（亦即从暂存区域移除），但仍然希望保留在当前工作目录中。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://XLXXLXXLX.github.io/post/Git-chang-jian-chang-jing-yong-fa-hui-zong.html">
 <meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
@@ -144,19 +128,24 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <li>可以被图形化界面替代的、偶尔用到的git命令</li>
 <li>其他命令</li>
 </ol>
-<p>克隆时想要自定义本地仓库名：<br>
-<code class="notranslate">git clone https://github.com/libgit2/ libgit2 mylibgit</code></p>
-<p>GitHub 有一个十分详细的针对数十种项目及语言的<code class="notranslate">.gitignore</code>文件列表，你可以在 <a href="https://github.com/github/gitignore">https://github.com/github/gitignore</a> 找到它.</p>
-<p>查看所有未暂存的改动：<br>
-<code class="notranslate"> git diff</code></p>
-<p>查看所有已暂存的改动：<br>
-<code class="notranslate">git diff --staged</code></p>
-<p>更好的git log，可以alias到glg：<br>
-<code class="notranslate"> git log --all --graph --decorate --oneline</code></p>
-<p>把文件从 Git 仓库中删除（亦即从暂存区域移除），但仍然希望保留在当前工作目录中。 换句话说，你想让文件保留在磁盘，但是并不想让 Git 继续跟踪：<br>
-<code class="notranslate">git rm --cached filename</code></p>
-<p>撤消对文件的修改：<br>
-<code class="notranslate">git checkout -- filename</code></p></div>
+<p>下面主要记录后三种：</p>
+<ul>
+<li>当具有多个私钥时，git clone 指定私钥克隆<br>
+<code class="notranslate">git clone remote_url.git --config core.sshCommand="ssh -i ~/.ssh/id_rsa"</code></li>
+<li>克隆时想要自定义本地仓库名：<br>
+<code class="notranslate">git clone https://github.com/libgit2/ libgit2 mylibgit</code></li>
+<li>GitHub 有一个十分详细的针对数十种项目及语言的<code class="notranslate">.gitignore</code>文件列表，你可以在 <a href="https://github.com/github/gitignore">https://github.com/github/gitignore</a> 找到它.</li>
+<li>查看所有未暂存的改动：<br>
+<code class="notranslate"> git diff</code></li>
+<li>查看所有已暂存的改动：<br>
+<code class="notranslate">git diff --staged</code></li>
+<li>更好的git log，可以alias到glg：<br>
+<code class="notranslate"> git log --all --graph --decorate --oneline</code></li>
+<li>把文件从 Git 仓库中删除（亦即从暂存区域移除），但仍然希望保留在当前工作目录中。 换句话说，你想让文件保留在磁盘，但是并不想让 Git 继续跟踪：<br>
+<code class="notranslate">git rm --cached filename</code></li>
+<li>撤消对文件的修改：<br>
+<code class="notranslate">git checkout -- filename</code></li>
+</ul></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
