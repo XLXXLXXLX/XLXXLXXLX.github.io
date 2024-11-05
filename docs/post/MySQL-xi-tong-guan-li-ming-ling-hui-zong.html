@@ -22,6 +22,11 @@ CREATE DATABASE db_name DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;
 - 更改数据库的字符编码
 ```
 ALTER DATABASE db_name DEFAULT CHARACTER SET gbk  COLLATE gbk_chinese_ci;
+```
+- 数据库的简单备份与还原
+```
+mysqldump -h [hostname] -P [port] -u [username] -p --database [database_name] > filename.sql
+mysqldump -h [hostname] -P [port] -u [username] -p --database [database_name] < filename.sql
 ```。">
 <meta property="og:title" content="MySQL系统管理命令汇总">
 <meta property="og:description" content="- 创建数据库，设定数据库字符集为utf8mb4
@@ -36,6 +41,11 @@ CREATE DATABASE db_name DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;
 - 更改数据库的字符编码
 ```
 ALTER DATABASE db_name DEFAULT CHARACTER SET gbk  COLLATE gbk_chinese_ci;
+```
+- 数据库的简单备份与还原
+```
+mysqldump -h [hostname] -P [port] -u [username] -p --database [database_name] > filename.sql
+mysqldump -h [hostname] -P [port] -u [username] -p --database [database_name] < filename.sql
 ```。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://XLXXLXXLX.github.io/post/MySQL-xi-tong-guan-li-ming-ling-hui-zong.html">
@@ -122,6 +132,12 @@ CREATE DATABASE db_name DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci
 <li>更改数据库的字符编码</li>
 </ul>
 <pre class="notranslate"><code class="notranslate">ALTER DATABASE db_name DEFAULT CHARACTER SET gbk  COLLATE gbk_chinese_ci;
+</code></pre>
+<ul>
+<li>数据库的简单备份与还原</li>
+</ul>
+<pre class="notranslate"><code class="notranslate">mysqldump -h [hostname] -P [port] -u [username] -p --database [database_name] &gt; filename.sql
+mysqldump -h [hostname] -P [port] -u [username] -p --database [database_name] &lt; filename.sql
 </code></pre></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 

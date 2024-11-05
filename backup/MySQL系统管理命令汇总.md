@@ -11,3 +11,8 @@ CREATE DATABASE db_name DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;
 ```
 ALTER DATABASE db_name DEFAULT CHARACTER SET gbk  COLLATE gbk_chinese_ci;
 ```
+- 数据库的简单备份与还原
+```
+mysqldump -h [hostname] -P [port] -u [username] -p --database [database_name] > filename.sql
+mysqldump -h [hostname] -P [port] -u [username] -p --database [database_name] < filename.sql
+```

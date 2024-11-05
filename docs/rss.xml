@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Tue, 05 Nov 2024 15:55:26 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>MySQL系统管理命令汇总</title><link>https://XLXXLXXLX.github.io/post/MySQL-xi-tong-guan-li-ming-ling-hui-zong.html</link><description>- 创建数据库，设定数据库字符集为utf8mb4&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Tue, 05 Nov 2024 15:59:09 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>MySQL系统管理命令汇总</title><link>https://XLXXLXXLX.github.io/post/MySQL-xi-tong-guan-li-ming-ling-hui-zong.html</link><description>- 创建数据库，设定数据库字符集为utf8mb4&#13;
 ```&#13;
 CREATE DATABASE db_name DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;&#13;
 CREATE DATABASE db_name DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;&#13;
@@ -11,6 +11,11 @@ CREATE DATABASE db_name DEFAULT CHARACTER SET gbk COLLATE gbk_chinese_ci;&#13;
 - 更改数据库的字符编码&#13;
 ```&#13;
 ALTER DATABASE db_name DEFAULT CHARACTER SET gbk  COLLATE gbk_chinese_ci;&#13;
+```&#13;
+- 数据库的简单备份与还原&#13;
+```&#13;
+mysqldump -h [hostname] -P [port] -u [username] -p --database [database_name] &gt; filename.sql&#13;
+mysqldump -h [hostname] -P [port] -u [username] -p --database [database_name] &lt; filename.sql&#13;
 ```。</description><guid isPermaLink="true">https://XLXXLXXLX.github.io/post/MySQL-xi-tong-guan-li-ming-ling-hui-zong.html</guid><pubDate>Tue, 05 Nov 2024 15:55:00 +0000</pubDate></item><item><title>【转载】大教堂与集市 by Eric Steven Raymond</title><link>https://XLXXLXXLX.github.io/post/%E3%80%90-zhuan-zai-%E3%80%91-da-jiao-tang-yu-ji-shi-%20by%20Eric%20Steven%20Raymond.html</link><description># 第一章 教堂与市集&#13;
 &#13;
 &#13;
