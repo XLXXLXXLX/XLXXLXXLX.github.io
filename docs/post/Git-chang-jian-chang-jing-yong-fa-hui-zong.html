@@ -21,7 +21,7 @@
 
 - 当具有多个私钥时，git clone 指定私钥克隆
 ``
-git clone remote_url.git --config core.sshCommand='ssh -i ~/.ssh/id_rsa'
+git clone remote_url.git --config core.sshCommand='ssh -i /path/to/id_rsa'
 ``
 - 克隆时想要自定义本地仓库名：
 ``
@@ -47,7 +47,7 @@ git clone https://github.com/libgit2/ libgit2 mylibgit
 
 - 当具有多个私钥时，git clone 指定私钥克隆
 ``
-git clone remote_url.git --config core.sshCommand='ssh -i ~/.ssh/id_rsa'
+git clone remote_url.git --config core.sshCommand='ssh -i /path/to/id_rsa'
 ``
 - 克隆时想要自定义本地仓库名：
 ``
@@ -130,21 +130,69 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </ol>
 <p>下面主要记录后三种：</p>
 <ul>
-<li>当具有多个私钥时，git clone 指定私钥克隆<br>
-<code class="notranslate">git clone remote_url.git --config core.sshCommand="ssh -i ~/.ssh/id_rsa"</code></li>
-<li>克隆时想要自定义本地仓库名：<br>
-<code class="notranslate">git clone https://github.com/libgit2/ libgit2 mylibgit</code></li>
-<li>GitHub 有一个十分详细的针对数十种项目及语言的<code class="notranslate">.gitignore</code>文件列表，你可以在 <a href="https://github.com/github/gitignore">https://github.com/github/gitignore</a> 找到它.</li>
-<li>查看所有未暂存的改动：<br>
-<code class="notranslate"> git diff</code></li>
-<li>查看所有已暂存的改动：<br>
-<code class="notranslate">git diff --staged</code></li>
-<li>更好的git log，可以alias到glg：<br>
-<code class="notranslate"> git log --all --graph --decorate --oneline</code></li>
-<li>把文件从 Git 仓库中删除（亦即从暂存区域移除），但仍然希望保留在当前工作目录中。 换句话说，你想让文件保留在磁盘，但是并不想让 Git 继续跟踪：<br>
-<code class="notranslate">git rm --cached filename</code></li>
-<li>撤消对文件的修改：<br>
-<code class="notranslate">git checkout -- filename</code></li>
+<li>
+<p>当具有多个私钥时，git clone 指定私钥克隆<br>
+<code class="notranslate">git clone remote_url.git --config core.sshCommand="ssh -i /path/to/id_rsa"</code></p>
+</li>
+<li>
+<p>克隆时想要自定义本地仓库名：<br>
+<code class="notranslate">git clone https://github.com/libgit2/ libgit2 mylibgit</code></p>
+</li>
+<li>
+<p>GitHub 有一个十分详细的针对数十种项目及语言的<code class="notranslate">.gitignore</code>文件列表，你可以在 <a href="https://github.com/github/gitignore">https://github.com/github/gitignore</a> 找到它.</p>
+</li>
+<li>
+<p>查看所有未暂存的改动：<br>
+<code class="notranslate"> git diff</code></p>
+</li>
+<li>
+<p>查看所有已暂存的改动：<br>
+<code class="notranslate">git diff --staged</code></p>
+</li>
+<li>
+<p>更好的git log，可以alias到glg：<br>
+<code class="notranslate"> git log --all --graph --decorate --oneline</code></p>
+</li>
+<li>
+<p>把文件从 Git 仓库中删除（亦即从暂存区域移除），但仍然希望保留在当前工作目录中。 换句话说，你想让文件保留在磁盘，但是并不想让 Git 继续跟踪：<br>
+<code class="notranslate">git rm --cached filename</code></p>
+</li>
+<li>
+<p>取消暂存<br>
+<code class="notranslate">git reset HEAD &lt;file&gt;</code></p>
+</li>
+<li>
+<p>撤消对文件的修改：<br>
+<code class="notranslate">git checkout -- filename</code></p>
+</li>
+<li>
+<p>显示远程仓库及其url<br>
+<code class="notranslate">git remote -v</code></p>
+</li>
+<li>
+<p>从远程仓库中获得数据<br>
+<code class="notranslate">git fetch [remote-name]</code></p>
+</li>
+<li>
+<p>推送<br>
+<code class="notranslate">git push [remote-name] [branch-name]</code></p>
+</li>
+<li>
+<p>仅创建分支，但并不自动切换到新分支中去<br>
+<code class="notranslate">git branch [branch-name]</code></p>
+</li>
+<li>
+<p>切换分支<br>
+<code class="notranslate">git checkout [branch-name]</code></p>
+</li>
+<li>
+<p>创建新分支并切换到该分支<br>
+<code class="notranslate">git checkout -b [branch-name]</code></p>
+</li>
+<li>
+<p>打标签<br>
+<code class="notranslate">git tag</code></p>
+</li>
 </ul></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
