@@ -10,12 +10,22 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="Vivaldi 书签导出格式正则表达式提取url + 网页名：
+<meta name="description" content="`网页名 url`转markdown格式：
+```regex
+^(.*) (http.*)$
+```
+
+Vivaldi 书签导出格式正则表达式提取url + 网页名：
 ```regex
 ^<DT><A HREF='(http.*)' ADD_DATE.*>(.*)</A>$
 ```。">
 <meta property="og:title" content="正则表达式记录">
-<meta property="og:description" content="Vivaldi 书签导出格式正则表达式提取url + 网页名：
+<meta property="og:description" content="`网页名 url`转markdown格式：
+```regex
+^(.*) (http.*)$
+```
+
+Vivaldi 书签导出格式正则表达式提取url + 网页名：
 ```regex
 ^<DT><A HREF='(http.*)' ADD_DATE.*>(.*)</A>$
 ```。">
@@ -89,7 +99,9 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><p>Vivaldi 书签导出格式正则表达式提取url + 网页名：</p>
+<div class="markdown-body" id="postBody"><p><code class="notranslate">网页名 url</code>转markdown格式：</p>
+<div class="highlight highlight-source-regexp"><pre class="notranslate"><span class="pl-cce">^</span><span class="pl-kos">(</span>.<span class="pl-c1">*</span><span class="pl-kos">)</span><span class="pl-s"> </span><span class="pl-kos">(</span><span class="pl-s">h</span><span class="pl-s">t</span><span class="pl-s">t</span><span class="pl-s">p</span>.<span class="pl-c1">*</span><span class="pl-kos">)</span><span class="pl-cce">$</span></pre></div>
+<p>Vivaldi 书签导出格式正则表达式提取url + 网页名：</p>
 <div class="highlight highlight-source-regexp"><pre class="notranslate"><span class="pl-cce">^</span><span class="pl-s">&lt;</span><span class="pl-s">D</span><span class="pl-s">T</span><span class="pl-s">&gt;</span><span class="pl-s">&lt;</span><span class="pl-s">A</span><span class="pl-s"> </span><span class="pl-s">H</span><span class="pl-s">R</span><span class="pl-s">E</span><span class="pl-s">F</span><span class="pl-s">=</span><span class="pl-s">"</span><span class="pl-kos">(</span><span class="pl-s">h</span><span class="pl-s">t</span><span class="pl-s">t</span><span class="pl-s">p</span>.<span class="pl-c1">*</span><span class="pl-kos">)</span><span class="pl-s">"</span><span class="pl-s"> </span><span class="pl-s">A</span><span class="pl-s">D</span><span class="pl-s">D</span><span class="pl-s">_</span><span class="pl-s">D</span><span class="pl-s">A</span><span class="pl-s">T</span><span class="pl-s">E</span>.<span class="pl-c1">*</span><span class="pl-s">&gt;</span><span class="pl-kos">(</span>.<span class="pl-c1">*</span><span class="pl-kos">)</span><span class="pl-s">&lt;</span><span class="pl-s">/</span><span class="pl-s">A</span><span class="pl-s">&gt;</span><span class="pl-cce">$</span></pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 

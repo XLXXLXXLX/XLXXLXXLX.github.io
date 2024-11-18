@@ -1,5 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Mon, 18 Nov 2024 12:06:11 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>正则表达式记录</title><link>https://XLXXLXXLX.github.io/post/zheng-ze-biao-da-shi-ji-lu.html</link><description>Vivaldi 书签导出格式正则表达式提取url + 网页名：&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Mon, 18 Nov 2024 12:07:57 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>正则表达式记录</title><link>https://XLXXLXXLX.github.io/post/zheng-ze-biao-da-shi-ji-lu.html</link><description>`网页名 url`转markdown格式：&#13;
+```regex&#13;
+^(.*) (http.*)$&#13;
+```&#13;
+&#13;
+Vivaldi 书签导出格式正则表达式提取url + 网页名：&#13;
 ```regex&#13;
 ^&lt;DT&gt;&lt;A HREF='(http.*)' ADD_DATE.*&gt;(.*)&lt;/A&gt;$&#13;
 ```。</description><guid isPermaLink="true">https://XLXXLXXLX.github.io/post/zheng-ze-biao-da-shi-ji-lu.html</guid><pubDate>Mon, 18 Nov 2024 12:05:47 +0000</pubDate></item><item><title>rsync 配置</title><link>https://XLXXLXXLX.github.io/post/rsync%20-pei-zhi.html</link><description>客户端，在不同文件系统中使用rsync时，可能出现文件系统时间格式不兼容，由于我也不在意文件时间的同步，于是加上了`--no-times`参数，端口默认值为873，可以自定义：&#13;
