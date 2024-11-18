@@ -1,5 +1,13 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Mon, 18 Nov 2024 10:54:13 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>ssh 配置</title><link>https://XLXXLXXLX.github.io/post/ssh%20-pei-zhi.html</link><description>生成ssh密钥对：&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Mon, 18 Nov 2024 11:03:43 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>rsync 配置</title><link>https://XLXXLXXLX.github.io/post/rsync%20-pei-zhi.html</link><description>客户端，在不同文件系统中使用rsync时，可能出现文件系统时间格式不兼容，由于我也不在意文件时间的同步，于是加上了`--no-times`参数，端口默认值为873，可以自定义：&#13;
+```sh&#13;
+rsync -avzsPuriy --no-times --delete 'rsync://username@ip:port/path/to/folder' /localpath/to/folder&#13;
+```&#13;
+服务端：&#13;
+```&#13;
+sudo apt install rsync&#13;
+sudo systemctl enable --now rsync&#13;
+```。</description><guid isPermaLink="true">https://XLXXLXXLX.github.io/post/rsync%20-pei-zhi.html</guid><pubDate>Mon, 18 Nov 2024 11:03:20 +0000</pubDate></item><item><title>ssh 配置</title><link>https://XLXXLXXLX.github.io/post/ssh%20-pei-zhi.html</link><description>生成ssh密钥对：&#13;
 ```sh&#13;
 ssh-keygen -t rsa -b 4096 -C 'miasanmia147@gmail.com'&#13;
 ```&#13;
