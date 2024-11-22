@@ -1,5 +1,18 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Fri, 22 Nov 2024 08:08:53 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>SpringBoot项目初始化</title><link>https://XLXXLXXLX.github.io/post/SpringBoot-xiang-mu-chu-shi-hua.html</link><description>打开IDEA，新建Maven模块，设置组名和工件名：&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Fri, 22 Nov 2024 08:10:23 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>Debian 12 使用apt安装Java8或Java11</title><link>https://XLXXLXXLX.github.io/post/Debian%2012%20-shi-yong-apt-an-zhuang-Java8-huo-Java11.html</link><description>```&#13;
+mkdir -p /etc/apt/keyrings&#13;
+&#13;
+wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | tee /etc/apt/keyrings/adoptium.asc&#13;
+&#13;
+echo 'deb [signed-by=/etc/apt/keyrings/adoptium.asc] https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main' | tee /etc/apt/sources.list.d/adoptium.list&#13;
+&#13;
+apt update &#13;
+&#13;
+apt install temurin-8-jdk&#13;
+&#13;
+update-alternatives --config java # choose new java&#13;
+update-alternatives --config javac # choose new javac&#13;
+```。</description><guid isPermaLink="true">https://XLXXLXXLX.github.io/post/Debian%2012%20-shi-yong-apt-an-zhuang-Java8-huo-Java11.html</guid><pubDate>Fri, 22 Nov 2024 08:10:00 +0000</pubDate></item><item><title>SpringBoot项目初始化</title><link>https://XLXXLXXLX.github.io/post/SpringBoot-xiang-mu-chu-shi-hua.html</link><description>打开IDEA，新建Maven模块，设置组名和工件名：&#13;
 ![2024-11-22_15-33](https://github.com/user-attachments/assets/27683b25-05eb-4706-8c8c-0ac32906454d)&#13;
 &#13;
 在pom.xml中添加springboot相关依赖（下面的示例来自[Spring Boot Reference Guide](https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/getting-started-installing-spring-boot.html#getting-started-maven-installation)）：&#13;
