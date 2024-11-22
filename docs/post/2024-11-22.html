@@ -107,9 +107,14 @@ rm /etc/initramfs-tools/conf.d/resume
 update-initramfs -u
 <span class="pl-c1">exit</span></pre></div>
 <ol start="2">
-<li>装OnlyOffice Desktop时发现有一个叫<code class="notranslate">ttf-mscorefonts-installer</code>的依赖死活装不上。<br>
+<li>
+<p>装OnlyOffice Desktop时发现有一个叫<code class="notranslate">ttf-mscorefonts-installer</code>的依赖死活装不上。<br>
 分析后发现，似乎是能用apt把包下下来，但是dpkg解包时似乎会运行一个脚本，这个脚本从sourceforge上把字体下载下来，但是<code class="notranslate">sudo dpkg</code>不会走本终端通过本用户设置的<code class="notranslate">http_proxy</code>，所以下载不下来。<br>
-因此解决方法也很简单了，直接<code class="notranslate">su -</code>，然后在root shell里export http_proxy，然后<code class="notranslate">dpkg --configure -a</code>就好了</li>
+因此解决方法也很简单了，直接<code class="notranslate">su -</code>，然后在root shell里export http_proxy，然后<code class="notranslate">dpkg --configure -a</code>就好了</p>
+</li>
+<li>
+<p>感觉Java好逆天啊。。。各种莫名其妙的配置（虽然转念一想，其实CMake更逆天才对。。。）</p>
+</li>
 </ol></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
