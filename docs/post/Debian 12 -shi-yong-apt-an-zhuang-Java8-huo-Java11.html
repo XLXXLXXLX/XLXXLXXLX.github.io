@@ -10,7 +10,9 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="```
+<meta name="description" content="```sh
+# using root
+
 mkdir -p /etc/apt/keyrings
 
 wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | tee /etc/apt/keyrings/adoptium.asc
@@ -25,7 +27,9 @@ update-alternatives --config java # choose new java
 update-alternatives --config javac # choose new javac
 ```。">
 <meta property="og:title" content="Debian 12 使用apt安装Java8或Java11">
-<meta property="og:description" content="```
+<meta property="og:description" content="```sh
+# using root
+
 mkdir -p /etc/apt/keyrings
 
 wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | tee /etc/apt/keyrings/adoptium.asc
@@ -43,7 +47,7 @@ update-alternatives --config javac # choose new javac
 <meta property="og:url" content="https://XLXXLXXLX.github.io/post/Debian%2012%20-shi-yong-apt-an-zhuang-Java8-huo-Java11.html">
 <meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
 <title>Debian 12 使用apt安装Java8或Java11</title>
-
+<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
 
 
 </head>
@@ -109,19 +113,20 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><pre class="notranslate"><code class="notranslate">mkdir -p /etc/apt/keyrings
+<div class="markdown-body" id="postBody"><div class="highlight highlight-source-shell"><pre class="notranslate"><span class="pl-c"><span class="pl-c">#</span> using root</span>
 
-wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | tee /etc/apt/keyrings/adoptium.asc
+mkdir -p /etc/apt/keyrings
 
-echo "deb [signed-by=/etc/apt/keyrings/adoptium.asc] https://packages.adoptium.net/artifactory/deb $(awk -F= '/^VERSION_CODENAME/{print$2}' /etc/os-release) main" | tee /etc/apt/sources.list.d/adoptium.list
+wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public <span class="pl-k">|</span> tee /etc/apt/keyrings/adoptium.asc
+
+<span class="pl-c1">echo</span> <span class="pl-s"><span class="pl-pds">"</span>deb [signed-by=/etc/apt/keyrings/adoptium.asc] https://packages.adoptium.net/artifactory/deb <span class="pl-s"><span class="pl-pds">$(</span>awk -F= <span class="pl-s"><span class="pl-pds">'</span>/^VERSION_CODENAME/{print$2}<span class="pl-pds">'</span></span> /etc/os-release<span class="pl-pds">)</span></span> main<span class="pl-pds">"</span></span> <span class="pl-k">|</span> tee /etc/apt/sources.list.d/adoptium.list
 
 apt update 
 
 apt install temurin-8-jdk
 
-update-alternatives --config java # choose new java
-update-alternatives --config javac # choose new javac
-</code></pre></div>
+update-alternatives --config java <span class="pl-c"><span class="pl-c">#</span> choose new java</span>
+update-alternatives --config javac <span class="pl-c"><span class="pl-c">#</span> choose new javac</span></pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;"></div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

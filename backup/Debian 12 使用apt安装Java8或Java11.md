@@ -1,4 +1,6 @@
-```
+```sh
+# using root
+
 mkdir -p /etc/apt/keyrings
 
 wget -O - https://packages.adoptium.net/artifactory/api/gpg/key/public | tee /etc/apt/keyrings/adoptium.asc
