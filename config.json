@@ -11,7 +11,7 @@
     //"filingNum":"浙ICP备20023628号",
     "onePageListNum":20,
     "singlePage":["about"],
-    "iconList":{"music":"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Z"},
+    //"iconList":{"music":"M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13Z"},
     //"exlink":{"music":"https://music.meekdai.com"},
     //"commentLabelColor":"#006b75",
     //"yearColorList":["#bc4c00", "#0969da", "#1f883d", "#A333D0"],
@@ -22,9 +22,9 @@
     "nightTheme":"dark_colorblind",
     "urlMode":"pinyin",
     "style":"",
-    "script":"",
+    "script":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekTOC.js'></script><script src='https://blog.meekdai.com/Gmeek/plugins/lightbox.js'></script>", //enable TOC and lightbox
     "head":"",
-    "allHead":"",
+    "allHead":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekBSZ.js'></script>", // 不蒜子
     "indexStyle":"",
     "indexScript":"",
     "showPostSource":1,
