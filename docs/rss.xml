@@ -1,8 +1,10 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Sun, 24 Nov 2024 09:09:51 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>Docker常见用法汇总记录</title><link>https://XLXXLXXLX.github.io/post/Docker-chang-jian-yong-fa-hui-zong-ji-lu.html</link><description>Docker进入容器：&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Sun, 24 Nov 2024 09:13:24 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>Docker常见用法汇总记录</title><link>https://XLXXLXXLX.github.io/post/Docker-chang-jian-yong-fa-hui-zong-ji-lu.html</link><description>Docker进入容器：&#13;
 ```sh&#13;
 docker exec -it ${容器ID} /bin/bash&#13;
-```。</description><guid isPermaLink="true">https://XLXXLXXLX.github.io/post/Docker-chang-jian-yong-fa-hui-zong-ji-lu.html</guid><pubDate>Sun, 24 Nov 2024 09:09:28 +0000</pubDate></item><item><title>Debian 12 使用apt安装Java8或Java11</title><link>https://XLXXLXXLX.github.io/post/Debian%2012%20-shi-yong-apt-an-zhuang-Java8-huo-Java11.html</link><description>```sh&#13;
+```&#13;
+为`docker pull`添加代理：&#13;
+在执行docker pull时，是由守护进程dockerd来执行。</description><guid isPermaLink="true">https://XLXXLXXLX.github.io/post/Docker-chang-jian-yong-fa-hui-zong-ji-lu.html</guid><pubDate>Sun, 24 Nov 2024 09:09:28 +0000</pubDate></item><item><title>Debian 12 使用apt安装Java8或Java11</title><link>https://XLXXLXXLX.github.io/post/Debian%2012%20-shi-yong-apt-an-zhuang-Java8-huo-Java11.html</link><description>```sh&#13;
 # using root&#13;
 &#13;
 mkdir -p /etc/apt/keyrings&#13;
