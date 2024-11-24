@@ -4,6 +4,7 @@
     "avatarUrl":"https://github.githubassets.com/favicons/favicon.svg",
     "GMEEK_VERSION":"last",
     "displayTitle":"XLX的博客",
+    "faviconUrl":"https://github.githubassets.com/favicons/favicon.svg",
     "email":"xulixiaoxjtu@qq.com",
     "onePageListNum":20,
     "singlePage":["about"],
@@ -21,5 +22,9 @@
     "indexScript":"",
     "showPostSource":1,
     "rssSplit":"sentence",
-    "bottomText":"请随意转载"
+    "bottomText":"请随意转载",
+    "primerCSS":"<link href='https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/Primer/21.0.7/primer.css' rel='stylesheet' />"
 }
+
+
+
