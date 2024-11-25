@@ -1,5 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Sun, 24 Nov 2024 09:17:20 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>Docker常见用法汇总记录</title><link>https://XLXXLXXLX.github.io/post/Docker-chang-jian-yong-fa-hui-zong-ji-lu.html</link><description>### Docker进入容器：&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Mon, 25 Nov 2024 02:22:06 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>使用tlp来为我的Debian省电</title><link>https://XLXXLXXLX.github.io/post/shi-yong-tlp-lai-wei-wo-de-Debian-sheng-dian.html</link><description>```sh&#13;
+sudo apt install tlp tlp-rdw&#13;
+sudo systemctl enable --now tlp&#13;
+suod vim /etc/tlp.conf&#13;
+```&#13;
+```&#13;
+# in /etc/tlp.conf&#13;
+CPU_SCALING_GOVERNOR_ON_AC=performance&#13;
+CPU_SCALING_GOVERNOR_ON_BAT=powersave&#13;
+DISK_APM_LEVEL_ON_AC='254'&#13;
+DISK_APM_LEVEL_ON_BAT='128'&#13;
+```&#13;
+&#13;
+参考资料：&#13;
+1. [使用 tlp 来为 linux 省电](https://www.meow-2.com/posts/linux/tlp-for-power-saving)&#13;
+2. [TLP：一个可以延长 Linux 笔记本电池寿命的高级电源管理工具](https://linux.cn/article-10848-1.html)。</description><guid isPermaLink="true">https://XLXXLXXLX.github.io/post/shi-yong-tlp-lai-wei-wo-de-Debian-sheng-dian.html</guid><pubDate>Mon, 25 Nov 2024 02:21:43 +0000</pubDate></item><item><title>Docker常见用法汇总记录</title><link>https://XLXXLXXLX.github.io/post/Docker-chang-jian-yong-fa-hui-zong-ji-lu.html</link><description>### Docker进入容器：&#13;
 ```sh&#13;
 docker exec -it ${容器ID} /bin/bash&#13;
 ```&#13;
