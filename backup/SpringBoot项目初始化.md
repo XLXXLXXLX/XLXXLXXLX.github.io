@@ -44,7 +44,7 @@
 
 
 # 最小应用
-注解`SpringBootApplication`是SpringBoot项目的入口：
+注解`@SpringBootApplication`是SpringBoot项目的入口：
 _HelloApplication.java_
 ```java
 @SpringBootApplication
@@ -53,4 +53,40 @@ public class HelloApplication {
         SpringApplication.run(HelloApplication.class);
     }
 }
+```
+使用`@RequestMapping`进行路由：
+_HelloController.java_
+```java
+    @RequestMapping("/hello")
+    public String hello() {
+        return "Hello, SpringBoot!\n";
+    }
+```
+
+
+# 读取YAML配置文件
+_springboot yaml config example:_
+```yaml
+spring:
+  profiles:
+    active:
+      dev # -> application-dev.yml
+      # pro -> application-pro.yml
+      # one-file-dev -> 下面---里面的配置
+---
+
+spring:
+  profiles: one-file-dev
+server:
+  port: 8083
+name1: 'chito'
+student: { name: "xlx",gender: "male",age: 22 }
+sentence1: 'test \n test'
+sentence2: "test \n test" # 双引号才识别转义
+array1:
+  - 0
+  - 1
+  - 2
+array2: [ 1,2,3,4,5 ]
+---
 ```

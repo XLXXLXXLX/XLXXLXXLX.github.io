@@ -56,7 +56,7 @@
 
 
 # 最小应用
-注解`SpringBootApplication`是SpringBoot项目的入口：
+注解`@SpringBootApplication`是SpringBoot项目的入口：
 _HelloApplication.java_
 ```java
 @SpringBootApplication
@@ -66,7 +66,42 @@ public class HelloApplication {
     }
 }
 ```
-。">
+使用`@RequestMapping`进行路由：
+_HelloController.java_
+```java
+    @RequestMapping('/hello')
+    public String hello() {
+        return 'Hello, SpringBoot!\n';
+    }
+```
+
+
+# 读取YAML配置文件
+_springboot yaml config example:_
+```yaml
+spring:
+  profiles:
+    active:
+      dev # -> application-dev.yml
+      # pro -> application-pro.yml
+      # one-file-dev -> 下面---里面的配置
+---
+
+spring:
+  profiles: one-file-dev
+server:
+  port: 8083
+name1: 'chito'
+student: { name: 'xlx',gender: 'male',age: 22 }
+sentence1: 'test \n test'
+sentence2: 'test \n test' # 双引号才识别转义
+array1:
+  - 0
+  - 1
+  - 2
+array2: [ 1,2,3,4,5 ]
+---
+```。">
 <meta property="og:title" content="SpringBoot项目初始化">
 <meta property="og:description" content="# SpringBoot初始化
 
@@ -114,7 +149,7 @@ public class HelloApplication {
 
 
 # 最小应用
-注解`SpringBootApplication`是SpringBoot项目的入口：
+注解`@SpringBootApplication`是SpringBoot项目的入口：
 _HelloApplication.java_
 ```java
 @SpringBootApplication
@@ -124,7 +159,42 @@ public class HelloApplication {
     }
 }
 ```
-。">
+使用`@RequestMapping`进行路由：
+_HelloController.java_
+```java
+    @RequestMapping('/hello')
+    public String hello() {
+        return 'Hello, SpringBoot!\n';
+    }
+```
+
+
+# 读取YAML配置文件
+_springboot yaml config example:_
+```yaml
+spring:
+  profiles:
+    active:
+      dev # -> application-dev.yml
+      # pro -> application-pro.yml
+      # one-file-dev -> 下面---里面的配置
+---
+
+spring:
+  profiles: one-file-dev
+server:
+  port: 8083
+name1: 'chito'
+student: { name: 'xlx',gender: 'male',age: 22 }
+sentence1: 'test \n test'
+sentence2: 'test \n test' # 双引号才识别转义
+array1:
+  - 0
+  - 1
+  - 2
+array2: [ 1,2,3,4,5 ]
+---
+```。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://XLXXLXXLX.github.io/post/SpringBoot-xiang-mu-chu-shi-hua.html">
 <meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
@@ -235,14 +305,44 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 
 &lt;/<span class="pl-ent">project</span>&gt;</pre></div>
 <h1>最小应用</h1>
-<p>注解<code class="notranslate">SpringBootApplication</code>是SpringBoot项目的入口：<br>
+<p>注解<code class="notranslate">@SpringBootApplication</code>是SpringBoot项目的入口：<br>
 <em>HelloApplication.java</em></p>
 <div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-c1">@</span><span class="pl-c1">SpringBootApplication</span>
 <span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-smi">HelloApplication</span> {
     <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-smi">void</span> <span class="pl-en">main</span>(<span class="pl-smi">String</span>[] <span class="pl-s1">args</span>) {
         <span class="pl-smi">SpringApplication</span>.<span class="pl-en">run</span>(<span class="pl-smi">HelloApplication</span>.<span class="pl-k">class</span>);
     }
-}</pre></div></div>
+}</pre></div>
+<p>使用<code class="notranslate">@RequestMapping</code>进行路由：<br>
+<em>HelloController.java</em></p>
+<div class="highlight highlight-source-java"><pre class="notranslate">    <span class="pl-c1">@</span><span class="pl-c1">RequestMapping</span>(<span class="pl-s">"/hello"</span>)
+    <span class="pl-k">public</span> <span class="pl-smi">String</span> <span class="pl-s1">hello</span>() {
+        <span class="pl-k">return</span> <span class="pl-s">"Hello, SpringBoot!<span class="pl-cce">\n</span>"</span>;
+    }</pre></div>
+<h1>读取YAML配置文件</h1>
+<p><em>springboot yaml config example:</em></p>
+<div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">spring</span>:
+  <span class="pl-ent">profiles</span>:
+    <span class="pl-ent">active</span>:
+      <span class="pl-s">dev </span><span class="pl-c"><span class="pl-c">#</span> -&gt; application-dev.yml</span>
+      <span class="pl-c"><span class="pl-c">#</span> pro -&gt; application-pro.yml</span>
+      <span class="pl-c"><span class="pl-c">#</span> one-file-dev -&gt; 下面---里面的配置</span>
+---
+
+<span class="pl-ent">spring</span>:
+  <span class="pl-ent">profiles</span>: <span class="pl-s">one-file-dev</span>
+<span class="pl-ent">server</span>:
+  <span class="pl-ent">port</span>: <span class="pl-c1">8083</span>
+<span class="pl-ent">name1</span>: <span class="pl-s"><span class="pl-pds">'</span>chito<span class="pl-pds">'</span></span>
+<span class="pl-ent">student</span>: <span class="pl-s">{ name: "xlx",gender: "male",age: 22 }</span>
+<span class="pl-ent">sentence1</span>: <span class="pl-s"><span class="pl-pds">'</span>test \n test<span class="pl-pds">'</span></span>
+<span class="pl-ent">sentence2</span>: <span class="pl-s"><span class="pl-pds">"</span>test <span class="pl-cce">\n</span> test<span class="pl-pds">"</span></span> <span class="pl-c"><span class="pl-c">#</span> 双引号才识别转义</span>
+<span class="pl-ent">array1</span>:
+  - <span class="pl-c1">0</span>
+  - <span class="pl-c1">1</span>
+  - <span class="pl-c1">2</span>
+<span class="pl-ent">array2</span>: <span class="pl-s">[ 1,2,3,4,5 ]</span>
+---</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;">请随意转载</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
