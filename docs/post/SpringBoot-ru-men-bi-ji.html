@@ -66,17 +66,24 @@ public class HelloApplication {
     }
 }
 ```
-使用`@RequestMapping`进行路由：
+使用`@RestController`和`@RequestMapping`进行路由：
 _HelloController.java_
 ```java
+@RestController
+public class HelloController {
     @RequestMapping('/hello')
     public String hello() {
         return 'Hello, SpringBoot!\n';
     }
+}
 ```
 
-
 # 读取YAML配置文件
+三种方法：
+1. `@Value`
+2. `@Autowired` + `Environment`
+3. `@Autowired` + `@ConfigurationProperties`
+
 _my `application.yml` config example:_
 ```yaml
 spring:
@@ -100,6 +107,55 @@ array1:
   - 2
 array2: [ 1,2,3,4,5 ]
 ---
+```
+_SpringBoot读取`application.yml`：_
+_ReadFromYAMLController.java_
+```java
+
+@RestController
+public class ReadFromYAMLController {
+    @Value('${name1}')      // 这个名字和yml中的字段名一致
+    private String name_1;  // 这个名字不需要一致
+
+    @Autowired
+    private Environment env; // 导入yml中的所有内容
+    @Autowired
+    private Student stu;
+
+    @RequestMapping('/hello')
+    public String hello() {
+        String res = '\nname1: ' + name_1;
+        res += '\nsentence1: ' + sentence1;
+        res += '\nsentence2: ' + sentence2;
+        return 'Hello, SpringBoot!\n' + res;
+    }
+
+    @RequestMapping('/env')
+    public String env() {
+        String sentence = env.getProperty('sentence1');
+        return sentence;
+    }
+
+    @RequestMapping('stu')
+    public String stu(){
+        return stu.toString();
+    }
+}
+```
+_Student.java：_
+```java
+@Component  // 表明这是一个Java Bean
+@ConfigurationProperties(prefix = 'student')  // 将application.yml中的student及其成员注入进来
+public class Student {
+    private String name;
+    private String gender;
+    private int age;
+
+    /*
+     * 省略Getter、Setter、toString
+     */
+}
+
 ```
 。">
 <meta property="og:title" content="SpringBoot入门笔记">
@@ -159,17 +215,24 @@ public class HelloApplication {
     }
 }
 ```
-使用`@RequestMapping`进行路由：
+使用`@RestController`和`@RequestMapping`进行路由：
 _HelloController.java_
 ```java
+@RestController
+public class HelloController {
     @RequestMapping('/hello')
     public String hello() {
         return 'Hello, SpringBoot!\n';
     }
+}
 ```
 
-
 # 读取YAML配置文件
+三种方法：
+1. `@Value`
+2. `@Autowired` + `Environment`
+3. `@Autowired` + `@ConfigurationProperties`
+
 _my `application.yml` config example:_
 ```yaml
 spring:
@@ -193,6 +256,55 @@ array1:
   - 2
 array2: [ 1,2,3,4,5 ]
 ---
+```
+_SpringBoot读取`application.yml`：_
+_ReadFromYAMLController.java_
+```java
+
+@RestController
+public class ReadFromYAMLController {
+    @Value('${name1}')      // 这个名字和yml中的字段名一致
+    private String name_1;  // 这个名字不需要一致
+
+    @Autowired
+    private Environment env; // 导入yml中的所有内容
+    @Autowired
+    private Student stu;
+
+    @RequestMapping('/hello')
+    public String hello() {
+        String res = '\nname1: ' + name_1;
+        res += '\nsentence1: ' + sentence1;
+        res += '\nsentence2: ' + sentence2;
+        return 'Hello, SpringBoot!\n' + res;
+    }
+
+    @RequestMapping('/env')
+    public String env() {
+        String sentence = env.getProperty('sentence1');
+        return sentence;
+    }
+
+    @RequestMapping('stu')
+    public String stu(){
+        return stu.toString();
+    }
+}
+```
+_Student.java：_
+```java
+@Component  // 表明这是一个Java Bean
+@ConfigurationProperties(prefix = 'student')  // 将application.yml中的student及其成员注入进来
+public class Student {
+    private String name;
+    private String gender;
+    private int age;
+
+    /*
+     * 省略Getter、Setter、toString
+     */
+}
+
 ```
 。">
 <meta property="og:type" content="article">
@@ -313,13 +425,22 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
         <span class="pl-smi">SpringApplication</span>.<span class="pl-en">run</span>(<span class="pl-smi">HelloApplication</span>.<span class="pl-k">class</span>);
     }
 }</pre></div>
-<p>使用<code class="notranslate">@RequestMapping</code>进行路由：<br>
+<p>使用<code class="notranslate">@RestController</code>和<code class="notranslate">@RequestMapping</code>进行路由：<br>
 <em>HelloController.java</em></p>
-<div class="highlight highlight-source-java"><pre class="notranslate">    <span class="pl-c1">@</span><span class="pl-c1">RequestMapping</span>(<span class="pl-s">"/hello"</span>)
-    <span class="pl-k">public</span> <span class="pl-smi">String</span> <span class="pl-s1">hello</span>() {
+<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-c1">@</span><span class="pl-c1">RestController</span>
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-smi">HelloController</span> {
+    <span class="pl-c1">@</span><span class="pl-c1">RequestMapping</span>(<span class="pl-s">"/hello"</span>)
+    <span class="pl-k">public</span> <span class="pl-smi">String</span> <span class="pl-en">hello</span>() {
         <span class="pl-k">return</span> <span class="pl-s">"Hello, SpringBoot!<span class="pl-cce">\n</span>"</span>;
-    }</pre></div>
+    }
+}</pre></div>
 <h1>读取YAML配置文件</h1>
+<p>三种方法：</p>
+<ol>
+<li><code class="notranslate">@Value</code></li>
+<li><code class="notranslate">@Autowired</code> + <code class="notranslate">Environment</code></li>
+<li><code class="notranslate">@Autowired</code> + <code class="notranslate">@ConfigurationProperties</code></li>
+</ol>
 <p><em>my <code class="notranslate">application.yml</code> config example:</em></p>
 <div class="highlight highlight-source-yaml"><pre class="notranslate"><span class="pl-ent">spring</span>:
   <span class="pl-ent">profiles</span>:
@@ -341,7 +462,50 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
   - <span class="pl-c1">1</span>
   - <span class="pl-c1">2</span>
 <span class="pl-ent">array2</span>: <span class="pl-s">[ 1,2,3,4,5 ]</span>
----</pre></div></div>
+---</pre></div>
+<p><em>SpringBoot读取<code class="notranslate">application.yml</code>：</em><br>
+<em>ReadFromYAMLController.java</em></p>
+<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-c1">@</span><span class="pl-c1">RestController</span>
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-smi">ReadFromYAMLController</span> {
+    <span class="pl-c1">@</span><span class="pl-c1">Value</span>(<span class="pl-s">"${name1}"</span>)      <span class="pl-c">// 这个名字和yml中的字段名一致</span>
+    <span class="pl-k">private</span> <span class="pl-smi">String</span> <span class="pl-s1">name_1</span>;  <span class="pl-c">// 这个名字不需要一致</span>
+
+    <span class="pl-c1">@</span><span class="pl-c1">Autowired</span>
+    <span class="pl-k">private</span> <span class="pl-smi">Environment</span> <span class="pl-s1">env</span>; <span class="pl-c">// 导入yml中的所有内容</span>
+    <span class="pl-c1">@</span><span class="pl-c1">Autowired</span>
+    <span class="pl-k">private</span> <span class="pl-smi">Student</span> <span class="pl-s1">stu</span>;
+
+    <span class="pl-c1">@</span><span class="pl-c1">RequestMapping</span>(<span class="pl-s">"/hello"</span>)
+    <span class="pl-k">public</span> <span class="pl-smi">String</span> <span class="pl-en">hello</span>() {
+        <span class="pl-smi">String</span> <span class="pl-s1">res</span> = <span class="pl-s">"<span class="pl-cce">\n</span>name1: "</span> + <span class="pl-s1">name_1</span>;
+        <span class="pl-s1">res</span> += <span class="pl-s">"<span class="pl-cce">\n</span>sentence1: "</span> + <span class="pl-s1">sentence1</span>;
+        <span class="pl-s1">res</span> += <span class="pl-s">"<span class="pl-cce">\n</span>sentence2: "</span> + <span class="pl-s1">sentence2</span>;
+        <span class="pl-k">return</span> <span class="pl-s">"Hello, SpringBoot!<span class="pl-cce">\n</span>"</span> + <span class="pl-s1">res</span>;
+    }
+
+    <span class="pl-c1">@</span><span class="pl-c1">RequestMapping</span>(<span class="pl-s">"/env"</span>)
+    <span class="pl-k">public</span> <span class="pl-smi">String</span> <span class="pl-en">env</span>() {
+        <span class="pl-smi">String</span> <span class="pl-s1">sentence</span> = <span class="pl-s1">env</span>.<span class="pl-en">getProperty</span>(<span class="pl-s">"sentence1"</span>);
+        <span class="pl-k">return</span> <span class="pl-s1">sentence</span>;
+    }
+
+    <span class="pl-c1">@</span><span class="pl-c1">RequestMapping</span>(<span class="pl-s">"stu"</span>)
+    <span class="pl-k">public</span> <span class="pl-smi">String</span> <span class="pl-en">stu</span>(){
+        <span class="pl-k">return</span> <span class="pl-s1">stu</span>.<span class="pl-en">toString</span>();
+    }
+}</pre></div>
+<p><em>Student.java：</em></p>
+<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-c1">@</span><span class="pl-c1">Component</span>  <span class="pl-c">// 表明这是一个Java Bean</span>
+<span class="pl-c1">@</span><span class="pl-c1">ConfigurationProperties</span>(<span class="pl-s1">prefix</span> = <span class="pl-s">"student"</span>)  <span class="pl-c">// 将application.yml中的student及其成员注入进来</span>
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-smi">Student</span> {
+    <span class="pl-k">private</span> <span class="pl-smi">String</span> <span class="pl-s1">name</span>;
+    <span class="pl-k">private</span> <span class="pl-smi">String</span> <span class="pl-s1">gender</span>;
+    <span class="pl-k">private</span> <span class="pl-smi">int</span> <span class="pl-s1">age</span>;
+
+    <span class="pl-c">/*</span>
+<span class="pl-c">     * 省略Getter、Setter、toString</span>
+<span class="pl-c">     */</span>
+}</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;">请随意转载</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>

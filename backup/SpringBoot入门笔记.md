@@ -54,17 +54,24 @@ public class HelloApplication {
     }
 }
 ```
-使用`@RequestMapping`进行路由：
+使用`@RestController`和`@RequestMapping`进行路由：
 _HelloController.java_
 ```java
+@RestController
+public class HelloController {
     @RequestMapping("/hello")
     public String hello() {
         return "Hello, SpringBoot!\n";
     }
+}
 ```
 
-
 # 读取YAML配置文件
+三种方法：
+1. `@Value`
+2. `@Autowired` + `Environment`
+3. `@Autowired` + `@ConfigurationProperties`
+
 _my `application.yml` config example:_
 ```yaml
 spring:
@@ -88,4 +95,53 @@ array1:
   - 2
 array2: [ 1,2,3,4,5 ]
 ---
+```
+_SpringBoot读取`application.yml`：_
+_ReadFromYAMLController.java_
+```java
+
+@RestController
+public class ReadFromYAMLController {
+    @Value("${name1}")      // 这个名字和yml中的字段名一致
+    private String name_1;  // 这个名字不需要一致
+
+    @Autowired
+    private Environment env; // 导入yml中的所有内容
+    @Autowired
+    private Student stu;
+
+    @RequestMapping("/hello")
+    public String hello() {
+        String res = "\nname1: " + name_1;
+        res += "\nsentence1: " + sentence1;
+        res += "\nsentence2: " + sentence2;
+        return "Hello, SpringBoot!\n" + res;
+    }
+
+    @RequestMapping("/env")
+    public String env() {
+        String sentence = env.getProperty("sentence1");
+        return sentence;
+    }
+
+    @RequestMapping("stu")
+    public String stu(){
+        return stu.toString();
+    }
+}
+```
+_Student.java：_
+```java
+@Component  // 表明这是一个Java Bean
+@ConfigurationProperties(prefix = "student")  // 将application.yml中的student及其成员注入进来
+public class Student {
+    private String name;
+    private String gender;
+    private int age;
+
+    /*
+     * 省略Getter、Setter、toString
+     */
+}
+
 ```
