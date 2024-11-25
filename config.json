@@ -17,7 +17,7 @@
     "style":"",
     "script":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekTOC.js'></script><script src='https://blog.meekdai.com/Gmeek/plugins/lightbox.js'></script>",
     "head":"",
-    "allHead":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekBSZ.js'></script><link rel='stylesheet' href='https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css' /><style>*{font-family:LXGW WenKai} *{font-weight:bold} body {font-family: LXGW WenKai;}</style>", 
+    "allHead":"<script src='https://blog.meekdai.com/Gmeek/plugins/GmeekVercount.js'></script><link rel='stylesheet' href='https://npm.elemecdn.com/lxgw-wenkai-webfont@1.1.0/lxgwwenkai-regular.css' /><style>*{font-family:LXGW WenKai} *{font-weight:bold} body {font-family: LXGW WenKai;}</style>", 
     "indexStyle":"",
     "indexScript":"",
     "showPostSource":1,
