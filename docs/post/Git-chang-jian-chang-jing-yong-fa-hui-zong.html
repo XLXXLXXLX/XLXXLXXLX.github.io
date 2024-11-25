@@ -19,15 +19,8 @@
 
 下面主要记录后三种：
 
-- 当具有多个私钥时，git clone 指定私钥克隆
-```
-git clone remote_url.git --config core.sshCommand='ssh -i /path/to/id_rsa'
-```
-- 克隆时想要自定义本地仓库名：
-```
-git clone https://github.com/libgit2/ libgit2 mylibgit
-```
-- GitHub 有一个十分详细的针对数十种项目及语言的`.gitignore`文件列表，你可以在 https://github.com/github/gitignore 找到它.
+### 本地查看
+- GitHub 有一个十分详细的针对数十种项目及语言的[`.gitignore`文件列表](https://github.com/github/gitignore)
 - 查看所有未暂存的改动：
 ```
 git diff
@@ -40,6 +33,8 @@ git diff --staged
 ```
 git log --all --graph --decorate --oneline
 ```
+
+### 本地编辑
 - 把文件从 Git 仓库中删除（亦即从暂存区域移除），但仍然希望保留在当前工作目录中。">
 <meta property="og:title" content="Git常见场景用法汇总">
 <meta property="og:description" content="对于我个人而言，大概有下面几类git命令：
@@ -51,15 +46,8 @@ git log --all --graph --decorate --oneline
 
 下面主要记录后三种：
 
-- 当具有多个私钥时，git clone 指定私钥克隆
-```
-git clone remote_url.git --config core.sshCommand='ssh -i /path/to/id_rsa'
-```
-- 克隆时想要自定义本地仓库名：
-```
-git clone https://github.com/libgit2/ libgit2 mylibgit
-```
-- GitHub 有一个十分详细的针对数十种项目及语言的`.gitignore`文件列表，你可以在 https://github.com/github/gitignore 找到它.
+### 本地查看
+- GitHub 有一个十分详细的针对数十种项目及语言的[`.gitignore`文件列表](https://github.com/github/gitignore)
 - 查看所有未暂存的改动：
 ```
 git diff
@@ -72,6 +60,8 @@ git diff --staged
 ```
 git log --all --graph --decorate --oneline
 ```
+
+### 本地编辑
 - 把文件从 Git 仓库中删除（亦即从暂存区域移除），但仍然希望保留在当前工作目录中。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://XLXXLXXLX.github.io/post/Git-chang-jian-chang-jing-yong-fa-hui-zong.html">
@@ -151,18 +141,9 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <li>其他命令</li>
 </ol>
 <p>下面主要记录后三种：</p>
+<h3>本地查看</h3>
 <ul>
-<li>当具有多个私钥时，git clone 指定私钥克隆</li>
-</ul>
-<pre class="notranslate"><code class="notranslate">git clone remote_url.git --config core.sshCommand="ssh -i /path/to/id_rsa"
-</code></pre>
-<ul>
-<li>克隆时想要自定义本地仓库名：</li>
-</ul>
-<pre class="notranslate"><code class="notranslate">git clone https://github.com/libgit2/ libgit2 mylibgit
-</code></pre>
-<ul>
-<li>GitHub 有一个十分详细的针对数十种项目及语言的<code class="notranslate">.gitignore</code>文件列表，你可以在 <a href="https://github.com/github/gitignore">https://github.com/github/gitignore</a> 找到它.</li>
+<li>GitHub 有一个十分详细的针对数十种项目及语言的<a href="https://github.com/github/gitignore"><code class="notranslate">.gitignore</code>文件列表</a></li>
 <li>查看所有未暂存的改动：</li>
 </ul>
 <pre class="notranslate"><code class="notranslate">git diff
@@ -177,6 +158,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </ul>
 <pre class="notranslate"><code class="notranslate">git log --all --graph --decorate --oneline
 </code></pre>
+<h3>本地编辑</h3>
 <ul>
 <li>把文件从 Git 仓库中删除（亦即从暂存区域移除），但仍然希望保留在当前工作目录中。 换句话说，你想让文件保留在磁盘，但是并不想让 Git 继续跟踪：</li>
 </ul>
@@ -192,21 +174,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </ul>
 <pre class="notranslate"><code class="notranslate">git checkout -- filename
 </code></pre>
-<ul>
-<li>显示远程仓库及其url</li>
-</ul>
-<pre class="notranslate"><code class="notranslate">git remote -v
-</code></pre>
-<ul>
-<li>从远程仓库中获得数据</li>
-</ul>
-<pre class="notranslate"><code class="notranslate">git fetch [remote-name]
-</code></pre>
-<ul>
-<li>推送</li>
-</ul>
-<pre class="notranslate"><code class="notranslate">git push [remote-name] [branch-name]
-</code></pre>
+<h3>分支</h3>
 <ul>
 <li>仅创建分支，但并不自动切换到新分支中去</li>
 </ul>
@@ -226,6 +194,30 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 <li>打标签</li>
 </ul>
 <pre class="notranslate"><code class="notranslate">git tag
+</code></pre>
+<h3>与remote互动</h3>
+<ul>
+<li>浅克隆以提高大型项目的克隆速度</li>
+<li>指定克隆哪个分支</li>
+<li>克隆时自定义本地仓库名</li>
+<li>当具有多个私钥时，指定使用哪个私钥克隆</li>
+</ul>
+<pre class="notranslate"><code class="notranslate">git clone -b cling-latest --depth=1 path-to/gitrepo.git localrepo --config core.sshCommand="ssh -i /path/to/id_rsa"
+</code></pre>
+<ul>
+<li>显示远程仓库及其url</li>
+</ul>
+<pre class="notranslate"><code class="notranslate">git remote -v
+</code></pre>
+<ul>
+<li>从远程仓库中获得数据</li>
+</ul>
+<pre class="notranslate"><code class="notranslate">git fetch [remote-name]
+</code></pre>
+<ul>
+<li>推送</li>
+</ul>
+<pre class="notranslate"><code class="notranslate">git push [remote-name] [branch-name]
 </code></pre></div>
 <div style="font-size:small;margin-top:8px;float:right;">请随意转载</div>
 

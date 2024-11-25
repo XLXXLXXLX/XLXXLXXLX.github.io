@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Mon, 25 Nov 2024 05:17:26 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>使用tlp来为我的Debian省电</title><link>https://XLXXLXXLX.github.io/post/shi-yong-tlp-lai-wei-wo-de-Debian-sheng-dian.html</link><description>```sh&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Mon, 25 Nov 2024 08:35:12 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>使用tlp来为我的Debian省电</title><link>https://XLXXLXXLX.github.io/post/shi-yong-tlp-lai-wei-wo-de-Debian-sheng-dian.html</link><description>```sh&#13;
 sudo apt install tlp tlp-rdw&#13;
 sudo systemctl enable --now tlp&#13;
 suod vim /etc/tlp.conf&#13;
@@ -313,15 +313,8 @@ Linux 打破了许多软件开发的传统，这个世界级的操作系统在�
 &#13;
 下面主要记录后三种：&#13;
 &#13;
-- 当具有多个私钥时，git clone 指定私钥克隆&#13;
-```&#13;
-git clone remote_url.git --config core.sshCommand='ssh -i /path/to/id_rsa'&#13;
-```&#13;
-- 克隆时想要自定义本地仓库名：&#13;
-```&#13;
-git clone https://github.com/libgit2/ libgit2 mylibgit&#13;
-```&#13;
-- GitHub 有一个十分详细的针对数十种项目及语言的`.gitignore`文件列表，你可以在 https://github.com/github/gitignore 找到它.&#13;
+### 本地查看&#13;
+- GitHub 有一个十分详细的针对数十种项目及语言的[`.gitignore`文件列表](https://github.com/github/gitignore)&#13;
 - 查看所有未暂存的改动：&#13;
 ```&#13;
 git diff&#13;
@@ -334,4 +327,6 @@ git diff --staged&#13;
 ```&#13;
 git log --all --graph --decorate --oneline&#13;
 ```&#13;
+&#13;
+### 本地编辑&#13;
 - 把文件从 Git 仓库中删除（亦即从暂存区域移除），但仍然希望保留在当前工作目录中。</description><guid isPermaLink="true">https://XLXXLXXLX.github.io/post/Git-chang-jian-chang-jing-yong-fa-hui-zong.html</guid><pubDate>Sun, 03 Nov 2024 16:01:48 +0000</pubDate></item><item><title>日记</title><link>https://XLXXLXXLX.github.io/post/ri-ji.html</link><description>感觉前端这些东西是真的混乱啊，很多都是强行加戏。</description><guid isPermaLink="true">https://XLXXLXXLX.github.io/post/ri-ji.html</guid><pubDate>Sat, 26 Oct 2024 09:58:47 +0000</pubDate></item><item><title>日记</title><link>https://XLXXLXXLX.github.io/post/ri-ji.html</link><description>从今天开始，秋招结束了，学一些真正想学的东西，做一些真正想做的事。</description><guid isPermaLink="true">https://XLXXLXXLX.github.io/post/ri-ji.html</guid><pubDate>Thu, 24 Oct 2024 16:02:12 +0000</pubDate></item></channel></rss>
