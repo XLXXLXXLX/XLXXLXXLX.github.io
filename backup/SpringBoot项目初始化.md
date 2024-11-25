@@ -1,4 +1,4 @@
-## SpringBoot初始化
+# SpringBoot初始化
 
 打开IDEA，新建Maven模块，设置组名和工件名：
 ![2024-11-22_15-33](https://github.com/user-attachments/assets/27683b25-05eb-4706-8c8c-0ac32906454d)
@@ -40,4 +40,17 @@
 	</build>
 
 </project>
+```
+
+
+# 最小应用
+注解`SpringBootApplication`是SpringBoot项目的入口：
+_HelloApplication.java_
+```java
+@SpringBootApplication
+public class HelloApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(HelloApplication.class);
+    }
+}
 ```

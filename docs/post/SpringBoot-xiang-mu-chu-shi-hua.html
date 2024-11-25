@@ -10,7 +10,7 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="## SpringBoot初始化
+<meta name="description" content="# SpringBoot初始化
 
 打开IDEA，新建Maven模块，设置组名和工件名：
 ![2024-11-22_15-33](https://github.com/user-attachments/assets/27683b25-05eb-4706-8c8c-0ac32906454d)
@@ -53,9 +53,22 @@
 
 </project>
 ```
+
+
+# 最小应用
+注解`SpringBootApplication`是SpringBoot项目的入口：
+_HelloApplication.java_
+```java
+@SpringBootApplication
+public class HelloApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(HelloApplication.class);
+    }
+}
+```
 。">
 <meta property="og:title" content="SpringBoot项目初始化">
-<meta property="og:description" content="## SpringBoot初始化
+<meta property="og:description" content="# SpringBoot初始化
 
 打开IDEA，新建Maven模块，设置组名和工件名：
 ![2024-11-22_15-33](https://github.com/user-attachments/assets/27683b25-05eb-4706-8c8c-0ac32906454d)
@@ -97,6 +110,19 @@
 	</build>
 
 </project>
+```
+
+
+# 最小应用
+注解`SpringBootApplication`是SpringBoot项目的入口：
+_HelloApplication.java_
+```java
+@SpringBootApplication
+public class HelloApplication {
+    public static void main(String[] args) {
+        SpringApplication.run(HelloApplication.class);
+    }
+}
 ```
 。">
 <meta property="og:type" content="article">
@@ -169,7 +195,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
 </div>
     <div id="content">
-<div class="markdown-body" id="postBody"><h2>SpringBoot初始化</h2>
+<div class="markdown-body" id="postBody"><h1>SpringBoot初始化</h1>
 <p>打开IDEA，新建Maven模块，设置组名和工件名：<br>
 <a target="_blank" rel="noopener noreferrer" href="https://github.com/user-attachments/assets/27683b25-05eb-4706-8c8c-0ac32906454d"><img src="https://github.com/user-attachments/assets/27683b25-05eb-4706-8c8c-0ac32906454d" alt="2024-11-22_15-33" style="max-width: 100%;"></a></p>
 <p>在pom.xml中添加springboot相关依赖（下面的示例来自<a href="https://docs.spring.io/spring-boot/docs/2.1.6.RELEASE/reference/html/getting-started-installing-spring-boot.html#getting-started-maven-installation" rel="nofollow">Spring Boot Reference Guide</a>）：</p>
@@ -207,7 +233,16 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 		&lt;/<span class="pl-ent">plugins</span>&gt;
 	&lt;/<span class="pl-ent">build</span>&gt;
 
-&lt;/<span class="pl-ent">project</span>&gt;</pre></div></div>
+&lt;/<span class="pl-ent">project</span>&gt;</pre></div>
+<h1>最小应用</h1>
+<p>注解<code class="notranslate">SpringBootApplication</code>是SpringBoot项目的入口：<br>
+<em>HelloApplication.java</em></p>
+<div class="highlight highlight-source-java"><pre class="notranslate"><span class="pl-c1">@</span><span class="pl-c1">SpringBootApplication</span>
+<span class="pl-k">public</span> <span class="pl-k">class</span> <span class="pl-smi">HelloApplication</span> {
+    <span class="pl-k">public</span> <span class="pl-k">static</span> <span class="pl-smi">void</span> <span class="pl-en">main</span>(<span class="pl-smi">String</span>[] <span class="pl-s1">args</span>) {
+        <span class="pl-smi">SpringApplication</span>.<span class="pl-en">run</span>(<span class="pl-smi">HelloApplication</span>.<span class="pl-k">class</span>);
+    }
+}</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;">请随意转载</div>
 
 <button class="btn btn-block" type="button" onclick="openComments()" id="cmButton">评论</button>
