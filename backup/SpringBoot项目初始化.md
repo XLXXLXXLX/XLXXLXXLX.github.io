@@ -65,7 +65,7 @@ _HelloController.java_
 
 
 # 读取YAML配置文件
-_springboot yaml config example:_
+_my `application.yml` config example:_
 ```yaml
 spring:
   profiles:
@@ -74,7 +74,6 @@ spring:
       # pro -> application-pro.yml
       # one-file-dev -> 下面---里面的配置
 ---
-
 spring:
   profiles: one-file-dev
 server:
