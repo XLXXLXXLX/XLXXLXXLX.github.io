@@ -1,3 +1,5 @@
+>在一千次重新学习如何配置后，决定做个记录
+
 # 使用${workspaceFolder}/.vscode/settings.json
 以构建cling时使用的配置为例：
 ```js
