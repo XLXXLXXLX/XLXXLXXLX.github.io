@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Thu, 28 Nov 2024 10:25:11 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>VSCode CMake配置</title><link>https://XLXXLXXLX.github.io/post/VSCode%20CMake-pei-zhi.html</link><description>&gt;在一千次重新学习如何配置后，决定做个记录&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Thu, 28 Nov 2024 10:28:04 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>VSCode CMake配置</title><link>https://XLXXLXXLX.github.io/post/VSCode%20CMake-pei-zhi.html</link><description>&gt;在一千次重新学习如何配置后，决定做个记录&#13;
 &#13;
 # 使用${workspaceFolder}/.vscode/settings.json&#13;
 以构建cling时使用的配置为例：&#13;
@@ -540,7 +540,7 @@ public class Student {&#13;
 }&#13;
 &#13;
 ```&#13;
-。</description><guid isPermaLink="true">https://XLXXLXXLX.github.io/post/SpringBoot-ru-men-bi-ji.html</guid><pubDate>Fri, 22 Nov 2024 08:08:26 +0000</pubDate></item><item><title>日记</title><link>https://XLXXLXXLX.github.io/post/ri-ji.html</link><description>1. （因为觉得不需要）把swap分区删了，结果导致开机会卡住一段时间，从boot日志上发现`gave up waiting for suspend/resume device`，顾名思义，估计是linux的快速恢复机制会把系统写到swap里去，所以干脆就不要快速恢复了：&#13;
+。</description><guid isPermaLink="true">https://XLXXLXXLX.github.io/post/SpringBoot-ru-men-bi-ji.html</guid><pubDate>Fri, 22 Nov 2024 08:08:26 +0000</pubDate></item><item><title>11/25/2024</title><link>https://XLXXLXXLX.github.io/post/11-25-2024.html</link><description>1. （因为觉得不需要）把swap分区删了，结果导致开机会卡住一段时间，从boot日志上发现`gave up waiting for suspend/resume device`，顾名思义，估计是linux的快速恢复机制会把系统写到swap里去，所以干脆就不要快速恢复了：&#13;
 ```sh&#13;
 su -&#13;
 rm /etc/initramfs-tools/conf.d/resume&#13;
@@ -548,7 +548,7 @@ update-initramfs -u&#13;
 exit&#13;
 ```&#13;
 &#13;
-2. 装OnlyOffice Desktop时发现有一个叫`ttf-mscorefonts-installer`的依赖死活装不上。</description><guid isPermaLink="true">https://XLXXLXXLX.github.io/post/ri-ji.html</guid><pubDate>Fri, 22 Nov 2024 06:39:51 +0000</pubDate></item><item><title>maven 设置代理</title><link>https://XLXXLXXLX.github.io/post/maven%20-she-zhi-dai-li.html</link><description>在`~/m2/settings.xml`中：&#13;
+2. 装OnlyOffice Desktop时发现有一个叫`ttf-mscorefonts-installer`的依赖死活装不上。</description><guid isPermaLink="true">https://XLXXLXXLX.github.io/post/11-25-2024.html</guid><pubDate>Fri, 22 Nov 2024 06:39:51 +0000</pubDate></item><item><title>maven 设置代理</title><link>https://XLXXLXXLX.github.io/post/maven%20-she-zhi-dai-li.html</link><description>在`~/m2/settings.xml`中：&#13;
 ```xml&#13;
 &lt;settings&gt;&#13;
  &lt;proxies&gt;&#13;
