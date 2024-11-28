@@ -1,4 +1,4 @@
-参考[菜鸟教程](https://www.runoob.com/linux/linux-shell-process-control.html)
+为了克服使用shell脚本“每次用到每次还要再查”的现状，尝试做一些记录，虽然还是参考[菜鸟教程](https://www.runoob.com/linux/linux-shell-process-control.html)（）
 
 ### 流程控制
 
