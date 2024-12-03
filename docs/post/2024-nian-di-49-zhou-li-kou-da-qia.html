@@ -11,11 +11,11 @@
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
 <meta name="description" content="# 周一 
-n皇后II https://leetcode.cn/problems/n-queens-ii/
+[n皇后II](https://leetcode.cn/problems/n-queens-ii/)
 好久不写了，脑袋木掉了。">
 <meta property="og:title" content="2024年第49周力扣打卡">
 <meta property="og:description" content="# 周一 
-n皇后II https://leetcode.cn/problems/n-queens-ii/
+[n皇后II](https://leetcode.cn/problems/n-queens-ii/)
 好久不写了，脑袋木掉了。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://XLXXLXXLX.github.io/post/2024-nian-di-49-zhou-li-kou-da-qia.html">
@@ -88,7 +88,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody"><h1>周一</h1>
-<p>n皇后II <a href="https://leetcode.cn/problems/n-queens-ii/" rel="nofollow">https://leetcode.cn/problems/n-queens-ii/</a><br>
+<p><a href="https://leetcode.cn/problems/n-queens-ii/" rel="nofollow">n皇后II</a><br>
 好久不写了，脑袋木掉了。<br>
 总之就是回溯+状态压缩（位运算），用三个比特集合存储横行、左斜行、右斜行的情况，然后按列扫描并回溯就好。<br>
 用到了<a href="https://zh.cppreference.com/w/cpp/utility/bitset" rel="nofollow">std::bitset</a>，这个感觉还算有点用。</p>
@@ -122,6 +122,16 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
     <span class="pl-k">int</span> <span class="pl-en">totalNQueens</span>(<span class="pl-k">int</span> n) {
         <span class="pl-c1">queen</span>(<span class="pl-c1">0</span>, n);
         <span class="pl-k">return</span> cnt;
+    }
+};</pre></div>
+<h1>周二</h1>
+<p>感冒了，正好出了一道eazy，签个到算了<br>
+<a href="https://leetcode.cn/problems/check-if-two-chessboard-squares-have-the-same-color/" rel="nofollow">3274. 检查棋盘方格颜色是否相同</a></p>
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">class</span> <span class="pl-en">Solution</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">bool</span> <span class="pl-en">checkTwoChessboards</span>(string coordinate1, string coordinate2) {
+        <span class="pl-k">return</span> !((coordinate1[<span class="pl-c1">0</span>] - <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span> + coordinate1[<span class="pl-c1">1</span>] - <span class="pl-s"><span class="pl-pds">'</span>1<span class="pl-pds">'</span></span> 
+                + coordinate2[<span class="pl-c1">0</span>] - <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span> + coordinate2[<span class="pl-c1">1</span>] - <span class="pl-s"><span class="pl-pds">'</span>1<span class="pl-pds">'</span></span>) % <span class="pl-c1">2</span>);
     }
 };</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;">请随意转载</div>

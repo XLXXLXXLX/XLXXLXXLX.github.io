@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Mon, 02 Dec 2024 06:12:13 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>std::bitset，定长比特集</title><link>https://XLXXLXXLX.github.io/post/std--bitset%EF%BC%8C-ding-chang-bi-te-ji.html</link><description>[std::bitset - cppreference.com](https://zh.cppreference.com/w/cpp/utility/bitset)&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Tue, 03 Dec 2024 10:22:06 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>std::bitset，定长比特集</title><link>https://XLXXLXXLX.github.io/post/std--bitset%EF%BC%8C-ding-chang-bi-te-ji.html</link><description>[std::bitset - cppreference.com](https://zh.cppreference.com/w/cpp/utility/bitset)&#13;
 与`std::vector&lt;bool&gt;`的关系类似于`std::array&lt;T, N&gt;`与`std::vector&lt;T&gt;`的关系，也就是同种元素的定长/非定长容器&#13;
 &#13;
 1. 可以由字符串或整形构造得到&#13;
@@ -7,7 +7,7 @@
 3. 各种位操作的语法糖支持&#13;
 4. to_string等转换函数&#13;
 5. 大部分成员函数支持`constexpr`，提供很大便利。</description><guid isPermaLink="true">https://XLXXLXXLX.github.io/post/std--bitset%EF%BC%8C-ding-chang-bi-te-ji.html</guid><pubDate>Mon, 02 Dec 2024 05:33:02 +0000</pubDate></item><item><title>2024年第49周力扣打卡</title><link>https://XLXXLXXLX.github.io/post/2024-nian-di-49-zhou-li-kou-da-qia.html</link><description># 周一 &#13;
-n皇后II https://leetcode.cn/problems/n-queens-ii/&#13;
+[n皇后II](https://leetcode.cn/problems/n-queens-ii/)&#13;
 好久不写了，脑袋木掉了。</description><guid isPermaLink="true">https://XLXXLXXLX.github.io/post/2024-nian-di-49-zhou-li-kou-da-qia.html</guid><pubDate>Mon, 02 Dec 2024 05:23:45 +0000</pubDate></item><item><title>VSCode CMake配置</title><link>https://XLXXLXXLX.github.io/post/VSCode%20CMake-pei-zhi.html</link><description>&gt;在一千次重新学习如何配置后，决定做个记录&#13;
 &#13;
 # 使用${workspaceFolder}/.vscode/settings.json&#13;
