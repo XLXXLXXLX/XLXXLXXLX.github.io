@@ -133,6 +133,95 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
         <span class="pl-k">return</span> !((coordinate1[<span class="pl-c1">0</span>] - <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span> + coordinate1[<span class="pl-c1">1</span>] - <span class="pl-s"><span class="pl-pds">'</span>1<span class="pl-pds">'</span></span> 
                 + coordinate2[<span class="pl-c1">0</span>] - <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span> + coordinate2[<span class="pl-c1">1</span>] - <span class="pl-s"><span class="pl-pds">'</span>1<span class="pl-pds">'</span></span>) % <span class="pl-c1">2</span>);
     }
+};</pre></div>
+<p><a href="https://leetcode.cn/problems/number-of-valid-move-combinations-on-chessboard/" rel="nofollow">2056. 棋盘上有效移动组合的数目</a><br>
+hard，头痛牙痛，脑袋蒙蒙，知道要用回溯/搜索，但就是搞不对，感觉是对数据结构的组织不太好。下面是别人的解法：</p>
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">struct</span> <span class="pl-en">Move</span> {
+    <span class="pl-k">int</span> x0, y0; <span class="pl-c"><span class="pl-c">//</span> 起点</span>
+    <span class="pl-k">int</span> dx, dy; <span class="pl-c"><span class="pl-c">//</span> 移动方向</span>
+    <span class="pl-k">int</span> step;   <span class="pl-c"><span class="pl-c">//</span> 移动次数</span>
+};
+
+<span class="pl-k">class</span> <span class="pl-en">Solution</span> {
+    vector&lt;pair&lt;<span class="pl-k">int</span>, <span class="pl-k">int</span>&gt;&gt; DIRS = {{-<span class="pl-c1">1</span>, <span class="pl-c1">0</span>}, {<span class="pl-c1">1</span>, <span class="pl-c1">0</span>}, {<span class="pl-c1">0</span>, -<span class="pl-c1">1</span>}, {<span class="pl-c1">0</span>, <span class="pl-c1">1</span>}, {<span class="pl-c1">1</span>, <span class="pl-c1">1</span>}, {-<span class="pl-c1">1</span>, <span class="pl-c1">1</span>}, {-<span class="pl-c1">1</span>, -<span class="pl-c1">1</span>}, {<span class="pl-c1">1</span>, -<span class="pl-c1">1</span>}}; <span class="pl-c"><span class="pl-c">//</span> 上下左右 + 斜向</span>
+    unordered_map&lt;<span class="pl-k">char</span>, vector&lt;pair&lt;<span class="pl-k">int</span>, <span class="pl-k">int</span>&gt;&gt;&gt; PIECE_DIRS = {
+        {<span class="pl-s"><span class="pl-pds">'</span>r<span class="pl-pds">'</span></span>, {DIRS.<span class="pl-c1">begin</span>(), DIRS.<span class="pl-c1">begin</span>() + <span class="pl-c1">4</span>}},
+        {<span class="pl-s"><span class="pl-pds">'</span>b<span class="pl-pds">'</span></span>, {DIRS.<span class="pl-c1">begin</span>() + <span class="pl-c1">4</span>, DIRS.<span class="pl-c1">end</span>()}},
+        {<span class="pl-s"><span class="pl-pds">'</span>q<span class="pl-pds">'</span></span>, DIRS},
+    };
+
+    <span class="pl-c"><span class="pl-c">//</span> 计算位于 (x0,y0) 的棋子在 dirs 这些方向上的所有合法移动</span>
+    vector&lt;Move&gt; <span class="pl-en">generate_moves</span>(<span class="pl-k">int</span> x0, <span class="pl-k">int</span> y0, vector&lt;pair&lt;<span class="pl-k">int</span>, <span class="pl-k">int</span>&gt;&gt;&amp; dirs) {
+        <span class="pl-k">const</span> <span class="pl-k">int</span> SIZE = <span class="pl-c1">8</span>;
+        vector&lt;Move&gt; moves = {{x0, <span class="pl-c1">y0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>}}; <span class="pl-c"><span class="pl-c">//</span> 原地不动</span>
+        <span class="pl-k">for</span> (<span class="pl-k">auto</span> [dx, dy] : dirs) {
+            <span class="pl-c"><span class="pl-c">//</span> 往 d 方向走 1,2,3,... 步</span>
+            <span class="pl-k">int</span> x = x0 + dx, y = <span class="pl-c1">y0</span> + dy;
+            <span class="pl-k">for</span> (<span class="pl-k">int</span> step = <span class="pl-c1">1</span>; <span class="pl-c1">0</span> &lt; x &amp;&amp; x &lt;= SIZE &amp;&amp; <span class="pl-c1">0</span> &lt; y &amp;&amp; y &lt;= SIZE; step++) {
+                moves.<span class="pl-c1">emplace_back</span>(x0, <span class="pl-c1">y0</span>, dx, dy, step);
+                x += dx;
+                y += dy;
+            }
+        }
+        <span class="pl-k">return</span> moves;
+    }
+
+    <span class="pl-c"><span class="pl-c">//</span> 判断两个移动是否合法，即不存在同一时刻两个棋子重叠的情况</span>
+    <span class="pl-k">bool</span> <span class="pl-en">is_valid</span>(Move&amp; m1, Move&amp; m2) {
+        <span class="pl-k">int</span> x1 = m1.<span class="pl-smi">x0</span>, <span class="pl-c1">y1</span> = m1.<span class="pl-smi">y0</span>;
+        <span class="pl-k">int</span> x2 = m2.<span class="pl-smi">x0</span>, y2 = m2.<span class="pl-smi">y0</span>;
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">max</span>(m1.<span class="pl-smi">step</span>, m2.<span class="pl-smi">step</span>); i++) {
+            <span class="pl-c"><span class="pl-c">//</span> 每一秒走一步</span>
+            <span class="pl-k">if</span> (i &lt; m1.<span class="pl-smi">step</span>) {
+                x1 += m1.<span class="pl-smi">dx</span>;
+                <span class="pl-c1">y1</span> += m1.<span class="pl-smi">dy</span>;
+            }
+            <span class="pl-k">if</span> (i &lt; m2.<span class="pl-smi">step</span>) {
+                x2 += m2.<span class="pl-smi">dx</span>;
+                y2 += m2.<span class="pl-smi">dy</span>;
+            }
+            <span class="pl-k">if</span> (x1 == x2 &amp;&amp; <span class="pl-c1">y1</span> == y2) { <span class="pl-c"><span class="pl-c">//</span> 重叠</span>
+                <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+            }
+        }
+        <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+    }
+
+<span class="pl-k">public:</span>
+    <span class="pl-k">int</span> <span class="pl-en">countCombinations</span>(vector&lt;string&gt;&amp; pieces, vector&lt;vector&lt;<span class="pl-k">int</span>&gt;&gt;&amp; positions) {
+        <span class="pl-k">int</span> n = pieces.<span class="pl-c1">size</span>();
+        <span class="pl-c"><span class="pl-c">//</span> 预处理所有合法移动</span>
+        vector&lt;vector&lt;Move&gt;&gt; <span class="pl-c1">all_moves</span>(n);
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; n; i++) {
+            all_moves[i] = <span class="pl-c1">generate_moves</span>(positions[i][<span class="pl-c1">0</span>], positions[i][<span class="pl-c1">1</span>], PIECE_DIRS[pieces[i][<span class="pl-c1">0</span>]]);
+        }
+
+        vector&lt;Move&gt; <span class="pl-c1">path</span>(n); <span class="pl-c"><span class="pl-c">//</span> 注意 path 的长度是固定的</span>
+        <span class="pl-k">int</span> ans = <span class="pl-c1">0</span>;
+        <span class="pl-k">auto</span> dfs = [&amp;](<span class="pl-k">auto</span>&amp; dfs, <span class="pl-k">int</span> i) -&gt; <span class="pl-k">void</span> {
+            <span class="pl-k">if</span> (i == n) {
+                ans++;
+                <span class="pl-k">return</span>;
+            }
+            <span class="pl-c"><span class="pl-c">//</span> 枚举当前棋子的所有合法移动</span>
+            <span class="pl-k">for</span> (Move&amp; move1 : all_moves[i]) {
+                <span class="pl-c"><span class="pl-c">//</span> 判断合法移动 move1 是否有效</span>
+                <span class="pl-k">bool</span> ok = <span class="pl-c1">true</span>;
+                <span class="pl-k">for</span> (<span class="pl-k">int</span> j = <span class="pl-c1">0</span>; j &lt; i; j++) {
+                    <span class="pl-k">if</span> (!<span class="pl-c1">is_valid</span>(move1, path[j])) {
+                        ok = <span class="pl-c1">false</span>;
+                        <span class="pl-k">break</span>;
+                    }
+                }
+                <span class="pl-k">if</span> (ok) {
+                    path[i] = move1; <span class="pl-c"><span class="pl-c">//</span> 直接覆盖，无需恢复现场</span>
+                    <span class="pl-c1">dfs</span>(dfs, i + <span class="pl-c1">1</span>); <span class="pl-c"><span class="pl-c">//</span> 枚举后续棋子的所有合法移动组合</span>
+                }
+            }
+        };
+        <span class="pl-c1">dfs</span>(dfs, <span class="pl-c1">0</span>);
+        <span class="pl-k">return</span> ans;
+    }
 };</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;">请随意转载</div>
 
