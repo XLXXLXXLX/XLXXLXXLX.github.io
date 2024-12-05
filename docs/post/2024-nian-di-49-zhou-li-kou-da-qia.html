@@ -134,6 +134,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
                 + coordinate2[<span class="pl-c1">0</span>] - <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span> + coordinate2[<span class="pl-c1">1</span>] - <span class="pl-s"><span class="pl-pds">'</span>1<span class="pl-pds">'</span></span>) % <span class="pl-c1">2</span>);
     }
 };</pre></div>
+<h1>周三</h1>
 <p><a href="https://leetcode.cn/problems/number-of-valid-move-combinations-on-chessboard/" rel="nofollow">2056. 棋盘上有效移动组合的数目</a><br>
 hard，头痛牙痛，脑袋蒙蒙，知道要用回溯/搜索，但就是搞不对，感觉是对数据结构的组织不太好。下面是别人的解法：</p>
 <div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">struct</span> <span class="pl-en">Move</span> {
@@ -221,6 +222,57 @@ hard，头痛牙痛，脑袋蒙蒙，知道要用回溯/搜索，但就是搞不
         };
         <span class="pl-c1">dfs</span>(dfs, <span class="pl-c1">0</span>);
         <span class="pl-k">return</span> ans;
+    }
+};</pre></div>
+<h1>周四</h1>
+<p><a href="https://leetcode.cn/problems/minimum-moves-to-capture-the-queen/description/" rel="nofollow">3001. 捕获黑皇后需要的最少移动次数</a><br>
+模拟题，搞对就行，没啥特别的，但要注意浮点数精度</p>
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">class</span> <span class="pl-en">Solution</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">int</span> <span class="pl-en">minMovesToCaptureTheQueen</span>(<span class="pl-k">int</span> a, <span class="pl-k">int</span> b, <span class="pl-k">int</span> c, <span class="pl-k">int</span> d, <span class="pl-k">int</span> e, <span class="pl-k">int</span> f) {
+        <span class="pl-k">if</span>((c + d + e + f) % <span class="pl-c1">2</span> == <span class="pl-c1">1</span>){
+            <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "白色象和黑皇后不在同一种颜色的格子里，只能使用车来捕获\n";</span>
+            <span class="pl-k">if</span>(a == e || b == f){
+                <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "车和皇后在同一行/同一列\n";</span>
+                <span class="pl-k">if</span>(a == c &amp;&amp; a == e &amp;&amp; (d - b) * (d - f) &lt; <span class="pl-c1">0</span>){
+                    <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "象在车和皇后中间\n";</span>
+                    <span class="pl-k">return</span> <span class="pl-c1">2</span>;
+                }<span class="pl-k">else</span> <span class="pl-k">if</span>(b == d &amp;&amp; b == f &amp;&amp; (c - a) * (c - e) &lt; <span class="pl-c1">0</span>){
+                    <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "象在车和皇后中间\n";</span>
+                    <span class="pl-k">return</span> <span class="pl-c1">2</span>;
+                }
+                <span class="pl-k">return</span> <span class="pl-c1">1</span>;
+            }
+            <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "不在同一行/同一列\n";</span>
+            <span class="pl-k">return</span> <span class="pl-c1">2</span>;
+        }
+        <span class="pl-c"><span class="pl-c">//</span> 可能是车，可能是象</span>
+        <span class="pl-k">if</span>(a == e || b == f){
+            <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "车和皇后在同一行/同一列\n";</span>
+            <span class="pl-k">if</span>(a == c &amp;&amp; a == e &amp;&amp; (d - b) * (d - f) &lt; <span class="pl-c1">0</span>){
+                <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "象在车和皇后中间\n";</span>
+                <span class="pl-k">return</span> <span class="pl-c1">2</span>;
+            }<span class="pl-k">else</span> <span class="pl-k">if</span>(b == d &amp;&amp; b == f &amp;&amp; (c - a) * (c - e) &lt; <span class="pl-c1">0</span>){
+                <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "象在车和皇后中间\n";</span>
+                <span class="pl-k">return</span> <span class="pl-c1">2</span>;
+            }
+            <span class="pl-k">return</span> <span class="pl-c1">1</span>;
+        }
+        <span class="pl-k">if</span>(<span class="pl-k">float</span> k = e == c ? <span class="pl-c1">0</span> : <span class="pl-c1">float</span>(f - d) / (e - c);
+                <span class="pl-c1">abs</span>(<span class="pl-c1">abs</span>(k) - <span class="pl-c1">1</span>) &lt; <span class="pl-c1">0.0001</span>){
+            <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "象和皇后在同一个斜线\n";</span>
+            <span class="pl-k">float</span> k1 = <span class="pl-c1">float</span>(f - b) / (e - a);
+            <span class="pl-k">if</span>(<span class="pl-c1">abs</span>(k - k1) &lt; <span class="pl-c1">0.0001</span>){
+                <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "斜率相同\n";</span>
+                <span class="pl-k">if</span>((b - d) * (b - f) &lt; <span class="pl-c1">0</span>){
+                    <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "车在象和皇后中间\n";</span>
+                    <span class="pl-k">return</span> <span class="pl-c1">2</span>;
+                }
+            }
+            <span class="pl-k">return</span> <span class="pl-c1">1</span>;
+        }
+        <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "普通情况\n";</span>
+        <span class="pl-k">return</span> <span class="pl-c1">2</span>;
     }
 };</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;">请随意转载</div>
