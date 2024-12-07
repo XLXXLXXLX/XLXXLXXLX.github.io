@@ -308,6 +308,32 @@ easy，抄答案了</p>
         }
         <span class="pl-k">return</span> cnt;
     }
+};</pre></div>
+<h1>周六</h1>
+<p><a href="https://leetcode.cn/problems/knight-probability-in-chessboard/" rel="nofollow">688. 骑士在棋盘上的概率</a><br>
+mid，偷懒了，暴力搜索没写出来，看了答案，挺普通的dp</p>
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">class</span> <span class="pl-en">Solution</span> {
+<span class="pl-k">public:</span>
+    vector&lt;vector&lt;<span class="pl-k">int</span>&gt;&gt; dirs = {{-<span class="pl-c1">2</span>, -<span class="pl-c1">1</span>}, {-<span class="pl-c1">2</span>, <span class="pl-c1">1</span>}, {<span class="pl-c1">2</span>, -<span class="pl-c1">1</span>}, {<span class="pl-c1">2</span>, <span class="pl-c1">1</span>}, {-<span class="pl-c1">1</span>, -<span class="pl-c1">2</span>}, {-<span class="pl-c1">1</span>, <span class="pl-c1">2</span>}, {<span class="pl-c1">1</span>, -<span class="pl-c1">2</span>}, {<span class="pl-c1">1</span>, <span class="pl-c1">2</span>}};
+    <span class="pl-k">double</span> <span class="pl-en">knightProbability</span>(<span class="pl-k">int</span> n, <span class="pl-k">int</span> k, <span class="pl-k">int</span> row, <span class="pl-k">int</span> column) {
+        vector&lt;vector&lt;vector&lt;<span class="pl-k">double</span>&gt;&gt;&gt; <span class="pl-c1">dp</span>(k + <span class="pl-c1">1</span>, vector&lt;vector&lt;<span class="pl-k">double</span>&gt;&gt;(n, vector&lt;<span class="pl-k">double</span>&gt;(n)));
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> step = <span class="pl-c1">0</span>; step &lt;= k; step++) {
+            <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; n; i++) {
+                <span class="pl-k">for</span> (<span class="pl-k">int</span> j = <span class="pl-c1">0</span>; j &lt; n; j++) {
+                    <span class="pl-k">if</span> (step == <span class="pl-c1">0</span>) { dp[step][i][j] = <span class="pl-c1">1</span>; } 
+                    <span class="pl-k">else</span> {
+                        <span class="pl-k">for</span> (<span class="pl-k">auto</span> &amp; dir : dirs) {
+                            <span class="pl-k">int</span> ni = i + dir[<span class="pl-c1">0</span>], nj = j + dir[<span class="pl-c1">1</span>];
+                            <span class="pl-k">if</span> (ni &gt;= <span class="pl-c1">0</span> &amp;&amp; ni &lt; n &amp;&amp; nj &gt;= <span class="pl-c1">0</span> &amp;&amp; nj &lt; n) {
+                                dp[step][i][j] += dp[step - <span class="pl-c1">1</span>][ni][nj] / <span class="pl-c1">8</span>;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        <span class="pl-k">return</span> dp[k][row][column];
+    }
 };</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;">请随意转载</div>
 
