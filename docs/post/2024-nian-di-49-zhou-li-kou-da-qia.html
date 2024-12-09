@@ -10,29 +10,13 @@
         let theme = localStorage.getItem("meek_theme") || "light";
         document.documentElement.setAttribute("data-color-mode", theme);
     </script>
-<meta name="description" content="# 周一
-签个到溜了
-[1812. 判断国际象棋棋盘中一个格子的颜色](https://leetcode.cn/problems/determine-color-of-a-chessboard-square/)
-```cpp
-class Solution {
-public:
-    bool squareIsWhite(string coordinates) {
-        return (coordinates[0] + coordinates[1]) % 2;
-    }
-};
-```。">
+<meta name="description" content="# 周一 
+[n皇后II](https://leetcode.cn/problems/n-queens-ii/)
+好久不写了，脑袋木掉了。">
 <meta property="og:title" content="2024年第49周力扣打卡">
-<meta property="og:description" content="# 周一
-签个到溜了
-[1812. 判断国际象棋棋盘中一个格子的颜色](https://leetcode.cn/problems/determine-color-of-a-chessboard-square/)
-```cpp
-class Solution {
-public:
-    bool squareIsWhite(string coordinates) {
-        return (coordinates[0] + coordinates[1]) % 2;
-    }
-};
-```。">
+<meta property="og:description" content="# 周一 
+[n皇后II](https://leetcode.cn/problems/n-queens-ii/)
+好久不写了，脑袋木掉了。">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://XLXXLXXLX.github.io/post/2024-nian-di-49-zhou-li-kou-da-qia.html">
 <meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
@@ -87,7 +71,7 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
         </svg>
     </a>
     
-    <a href="https://github.com/XLXXLXXLX/XLXXLXXLX.github.io/issues/28" target="_blank" class="btn btn-invisible circle" title="Issue">
+    <a href="https://github.com/XLXXLXXLX/XLXXLXXLX.github.io/issues/26" target="_blank" class="btn btn-invisible circle" title="Issue">
         <svg class="octicon" width="16" height="16">
             <path id="pathIssue" fill-rule="evenodd"></path>
         </svg>
@@ -104,12 +88,251 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody"><h1>周一</h1>
-<p>签个到溜了<br>
-<a href="https://leetcode.cn/problems/determine-color-of-a-chessboard-square/" rel="nofollow">1812. 判断国际象棋棋盘中一个格子的颜色</a></p>
+<p><a href="https://leetcode.cn/problems/n-queens-ii/" rel="nofollow">n皇后II</a><br>
+好久不写了，脑袋木掉了。<br>
+总之就是回溯+状态压缩（位运算），用三个比特集合存储横行、左斜行、右斜行的情况，然后按列扫描并回溯就好。<br>
+用到了<a href="https://zh.cppreference.com/w/cpp/utility/bitset" rel="nofollow">std::bitset</a>，这个感觉还算有点用。</p>
 <div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">class</span> <span class="pl-en">Solution</span> {
 <span class="pl-k">public:</span>
-    <span class="pl-k">bool</span> <span class="pl-en">squareIsWhite</span>(string coordinates) {
-        <span class="pl-k">return</span> (coordinates[<span class="pl-c1">0</span>] + coordinates[<span class="pl-c1">1</span>]) % <span class="pl-c1">2</span>;
+    std::bitset&lt;<span class="pl-c1">10</span>&gt;col{<span class="pl-c1">0</span>};
+    std::bitset&lt;<span class="pl-c1">20</span>&gt;diag1{<span class="pl-c1">0</span>}, diag2{<span class="pl-c1">0</span>};
+    <span class="pl-k">int</span> cnt{<span class="pl-c1">0</span>};
+    <span class="pl-k">void</span> <span class="pl-en">queen</span>(<span class="pl-k">int</span> row, <span class="pl-k">int</span> n){
+        <span class="pl-k">if</span>(row == n){
+        <span class="pl-c"><span class="pl-c">//</span> std::cout&lt;&lt;"row = "&lt;&lt;row&lt;&lt;'\n';</span>
+        <span class="pl-c"><span class="pl-c">//</span> std::cout&lt;&lt;col.to_string()&lt;&lt;'\n';</span>
+        <span class="pl-c"><span class="pl-c">//</span> std::cout&lt;&lt;diag1.to_string()&lt;&lt;'\n';</span>
+        <span class="pl-c"><span class="pl-c">//</span> std::cout&lt;&lt;diag2.to_string()&lt;&lt;'\n';</span>
+            cnt++;
+            <span class="pl-k">return</span>;
+        }
+        <span class="pl-k">for</span>(<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; n; i++){
+        <span class="pl-c"><span class="pl-c">//</span> 左斜行和右斜行的idx搞对就好</span>
+            <span class="pl-k">if</span>(!col[i] &amp;&amp; !diag1[i + row] &amp;&amp; !diag2[i + n - <span class="pl-c1">1</span> - row]){
+                col[i] = <span class="pl-c1">1</span>;
+                diag1[i + row] = <span class="pl-c1">1</span>;
+                diag2[i + n - <span class="pl-c1">1</span> - row] = <span class="pl-c1">1</span>;
+                <span class="pl-c1">queen</span>(row + <span class="pl-c1">1</span>, n);
+                col[i] = <span class="pl-c1">0</span>;
+                diag1[i + row] = <span class="pl-c1">0</span>;
+                diag2[i + n - <span class="pl-c1">1</span> - row] = <span class="pl-c1">0</span>;
+            }
+        }
+    }
+    <span class="pl-k">int</span> <span class="pl-en">totalNQueens</span>(<span class="pl-k">int</span> n) {
+        <span class="pl-c1">queen</span>(<span class="pl-c1">0</span>, n);
+        <span class="pl-k">return</span> cnt;
+    }
+};</pre></div>
+<h1>周二</h1>
+<p>感冒了，正好出了一道eazy，签个到算了<br>
+<a href="https://leetcode.cn/problems/check-if-two-chessboard-squares-have-the-same-color/" rel="nofollow">3274. 检查棋盘方格颜色是否相同</a></p>
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">class</span> <span class="pl-en">Solution</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">bool</span> <span class="pl-en">checkTwoChessboards</span>(string coordinate1, string coordinate2) {
+        <span class="pl-k">return</span> !((coordinate1[<span class="pl-c1">0</span>] - <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span> + coordinate1[<span class="pl-c1">1</span>] - <span class="pl-s"><span class="pl-pds">'</span>1<span class="pl-pds">'</span></span> 
+                + coordinate2[<span class="pl-c1">0</span>] - <span class="pl-s"><span class="pl-pds">'</span>a<span class="pl-pds">'</span></span> + coordinate2[<span class="pl-c1">1</span>] - <span class="pl-s"><span class="pl-pds">'</span>1<span class="pl-pds">'</span></span>) % <span class="pl-c1">2</span>);
+    }
+};</pre></div>
+<h1>周三</h1>
+<p><a href="https://leetcode.cn/problems/number-of-valid-move-combinations-on-chessboard/" rel="nofollow">2056. 棋盘上有效移动组合的数目</a><br>
+hard，头痛牙痛，脑袋蒙蒙，知道要用回溯/搜索，但就是搞不对，感觉是对数据结构的组织不太好。下面是别人的解法：</p>
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">struct</span> <span class="pl-en">Move</span> {
+    <span class="pl-k">int</span> x0, y0; <span class="pl-c"><span class="pl-c">//</span> 起点</span>
+    <span class="pl-k">int</span> dx, dy; <span class="pl-c"><span class="pl-c">//</span> 移动方向</span>
+    <span class="pl-k">int</span> step;   <span class="pl-c"><span class="pl-c">//</span> 移动次数</span>
+};
+
+<span class="pl-k">class</span> <span class="pl-en">Solution</span> {
+    vector&lt;pair&lt;<span class="pl-k">int</span>, <span class="pl-k">int</span>&gt;&gt; DIRS = {{-<span class="pl-c1">1</span>, <span class="pl-c1">0</span>}, {<span class="pl-c1">1</span>, <span class="pl-c1">0</span>}, {<span class="pl-c1">0</span>, -<span class="pl-c1">1</span>}, {<span class="pl-c1">0</span>, <span class="pl-c1">1</span>}, {<span class="pl-c1">1</span>, <span class="pl-c1">1</span>}, {-<span class="pl-c1">1</span>, <span class="pl-c1">1</span>}, {-<span class="pl-c1">1</span>, -<span class="pl-c1">1</span>}, {<span class="pl-c1">1</span>, -<span class="pl-c1">1</span>}}; <span class="pl-c"><span class="pl-c">//</span> 上下左右 + 斜向</span>
+    unordered_map&lt;<span class="pl-k">char</span>, vector&lt;pair&lt;<span class="pl-k">int</span>, <span class="pl-k">int</span>&gt;&gt;&gt; PIECE_DIRS = {
+        {<span class="pl-s"><span class="pl-pds">'</span>r<span class="pl-pds">'</span></span>, {DIRS.<span class="pl-c1">begin</span>(), DIRS.<span class="pl-c1">begin</span>() + <span class="pl-c1">4</span>}},
+        {<span class="pl-s"><span class="pl-pds">'</span>b<span class="pl-pds">'</span></span>, {DIRS.<span class="pl-c1">begin</span>() + <span class="pl-c1">4</span>, DIRS.<span class="pl-c1">end</span>()}},
+        {<span class="pl-s"><span class="pl-pds">'</span>q<span class="pl-pds">'</span></span>, DIRS},
+    };
+
+    <span class="pl-c"><span class="pl-c">//</span> 计算位于 (x0,y0) 的棋子在 dirs 这些方向上的所有合法移动</span>
+    vector&lt;Move&gt; <span class="pl-en">generate_moves</span>(<span class="pl-k">int</span> x0, <span class="pl-k">int</span> y0, vector&lt;pair&lt;<span class="pl-k">int</span>, <span class="pl-k">int</span>&gt;&gt;&amp; dirs) {
+        <span class="pl-k">const</span> <span class="pl-k">int</span> SIZE = <span class="pl-c1">8</span>;
+        vector&lt;Move&gt; moves = {{x0, <span class="pl-c1">y0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>}}; <span class="pl-c"><span class="pl-c">//</span> 原地不动</span>
+        <span class="pl-k">for</span> (<span class="pl-k">auto</span> [dx, dy] : dirs) {
+            <span class="pl-c"><span class="pl-c">//</span> 往 d 方向走 1,2,3,... 步</span>
+            <span class="pl-k">int</span> x = x0 + dx, y = <span class="pl-c1">y0</span> + dy;
+            <span class="pl-k">for</span> (<span class="pl-k">int</span> step = <span class="pl-c1">1</span>; <span class="pl-c1">0</span> &lt; x &amp;&amp; x &lt;= SIZE &amp;&amp; <span class="pl-c1">0</span> &lt; y &amp;&amp; y &lt;= SIZE; step++) {
+                moves.<span class="pl-c1">emplace_back</span>(x0, <span class="pl-c1">y0</span>, dx, dy, step);
+                x += dx;
+                y += dy;
+            }
+        }
+        <span class="pl-k">return</span> moves;
+    }
+
+    <span class="pl-c"><span class="pl-c">//</span> 判断两个移动是否合法，即不存在同一时刻两个棋子重叠的情况</span>
+    <span class="pl-k">bool</span> <span class="pl-en">is_valid</span>(Move&amp; m1, Move&amp; m2) {
+        <span class="pl-k">int</span> x1 = m1.<span class="pl-smi">x0</span>, <span class="pl-c1">y1</span> = m1.<span class="pl-smi">y0</span>;
+        <span class="pl-k">int</span> x2 = m2.<span class="pl-smi">x0</span>, y2 = m2.<span class="pl-smi">y0</span>;
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">max</span>(m1.<span class="pl-smi">step</span>, m2.<span class="pl-smi">step</span>); i++) {
+            <span class="pl-c"><span class="pl-c">//</span> 每一秒走一步</span>
+            <span class="pl-k">if</span> (i &lt; m1.<span class="pl-smi">step</span>) {
+                x1 += m1.<span class="pl-smi">dx</span>;
+                <span class="pl-c1">y1</span> += m1.<span class="pl-smi">dy</span>;
+            }
+            <span class="pl-k">if</span> (i &lt; m2.<span class="pl-smi">step</span>) {
+                x2 += m2.<span class="pl-smi">dx</span>;
+                y2 += m2.<span class="pl-smi">dy</span>;
+            }
+            <span class="pl-k">if</span> (x1 == x2 &amp;&amp; <span class="pl-c1">y1</span> == y2) { <span class="pl-c"><span class="pl-c">//</span> 重叠</span>
+                <span class="pl-k">return</span> <span class="pl-c1">false</span>;
+            }
+        }
+        <span class="pl-k">return</span> <span class="pl-c1">true</span>;
+    }
+
+<span class="pl-k">public:</span>
+    <span class="pl-k">int</span> <span class="pl-en">countCombinations</span>(vector&lt;string&gt;&amp; pieces, vector&lt;vector&lt;<span class="pl-k">int</span>&gt;&gt;&amp; positions) {
+        <span class="pl-k">int</span> n = pieces.<span class="pl-c1">size</span>();
+        <span class="pl-c"><span class="pl-c">//</span> 预处理所有合法移动</span>
+        vector&lt;vector&lt;Move&gt;&gt; <span class="pl-c1">all_moves</span>(n);
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; n; i++) {
+            all_moves[i] = <span class="pl-c1">generate_moves</span>(positions[i][<span class="pl-c1">0</span>], positions[i][<span class="pl-c1">1</span>], PIECE_DIRS[pieces[i][<span class="pl-c1">0</span>]]);
+        }
+
+        vector&lt;Move&gt; <span class="pl-c1">path</span>(n); <span class="pl-c"><span class="pl-c">//</span> 注意 path 的长度是固定的</span>
+        <span class="pl-k">int</span> ans = <span class="pl-c1">0</span>;
+        <span class="pl-k">auto</span> dfs = [&amp;](<span class="pl-k">auto</span>&amp; dfs, <span class="pl-k">int</span> i) -&gt; <span class="pl-k">void</span> {
+            <span class="pl-k">if</span> (i == n) {
+                ans++;
+                <span class="pl-k">return</span>;
+            }
+            <span class="pl-c"><span class="pl-c">//</span> 枚举当前棋子的所有合法移动</span>
+            <span class="pl-k">for</span> (Move&amp; move1 : all_moves[i]) {
+                <span class="pl-c"><span class="pl-c">//</span> 判断合法移动 move1 是否有效</span>
+                <span class="pl-k">bool</span> ok = <span class="pl-c1">true</span>;
+                <span class="pl-k">for</span> (<span class="pl-k">int</span> j = <span class="pl-c1">0</span>; j &lt; i; j++) {
+                    <span class="pl-k">if</span> (!<span class="pl-c1">is_valid</span>(move1, path[j])) {
+                        ok = <span class="pl-c1">false</span>;
+                        <span class="pl-k">break</span>;
+                    }
+                }
+                <span class="pl-k">if</span> (ok) {
+                    path[i] = move1; <span class="pl-c"><span class="pl-c">//</span> 直接覆盖，无需恢复现场</span>
+                    <span class="pl-c1">dfs</span>(dfs, i + <span class="pl-c1">1</span>); <span class="pl-c"><span class="pl-c">//</span> 枚举后续棋子的所有合法移动组合</span>
+                }
+            }
+        };
+        <span class="pl-c1">dfs</span>(dfs, <span class="pl-c1">0</span>);
+        <span class="pl-k">return</span> ans;
+    }
+};</pre></div>
+<h1>周四</h1>
+<p><a href="https://leetcode.cn/problems/minimum-moves-to-capture-the-queen/description/" rel="nofollow">3001. 捕获黑皇后需要的最少移动次数</a><br>
+模拟题，搞对就行，没啥特别的，但要注意浮点数精度</p>
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">class</span> <span class="pl-en">Solution</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">int</span> <span class="pl-en">minMovesToCaptureTheQueen</span>(<span class="pl-k">int</span> a, <span class="pl-k">int</span> b, <span class="pl-k">int</span> c, <span class="pl-k">int</span> d, <span class="pl-k">int</span> e, <span class="pl-k">int</span> f) {
+        <span class="pl-k">if</span>((c + d + e + f) % <span class="pl-c1">2</span> == <span class="pl-c1">1</span>){
+            <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "白色象和黑皇后不在同一种颜色的格子里，只能使用车来捕获\n";</span>
+            <span class="pl-k">if</span>(a == e || b == f){
+                <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "车和皇后在同一行/同一列\n";</span>
+                <span class="pl-k">if</span>(a == c &amp;&amp; a == e &amp;&amp; (d - b) * (d - f) &lt; <span class="pl-c1">0</span>){
+                    <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "象在车和皇后中间\n";</span>
+                    <span class="pl-k">return</span> <span class="pl-c1">2</span>;
+                }<span class="pl-k">else</span> <span class="pl-k">if</span>(b == d &amp;&amp; b == f &amp;&amp; (c - a) * (c - e) &lt; <span class="pl-c1">0</span>){
+                    <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "象在车和皇后中间\n";</span>
+                    <span class="pl-k">return</span> <span class="pl-c1">2</span>;
+                }
+                <span class="pl-k">return</span> <span class="pl-c1">1</span>;
+            }
+            <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "不在同一行/同一列\n";</span>
+            <span class="pl-k">return</span> <span class="pl-c1">2</span>;
+        }
+        <span class="pl-c"><span class="pl-c">//</span> 可能是车，可能是象</span>
+        <span class="pl-k">if</span>(a == e || b == f){
+            <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "车和皇后在同一行/同一列\n";</span>
+            <span class="pl-k">if</span>(a == c &amp;&amp; a == e &amp;&amp; (d - b) * (d - f) &lt; <span class="pl-c1">0</span>){
+                <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "象在车和皇后中间\n";</span>
+                <span class="pl-k">return</span> <span class="pl-c1">2</span>;
+            }<span class="pl-k">else</span> <span class="pl-k">if</span>(b == d &amp;&amp; b == f &amp;&amp; (c - a) * (c - e) &lt; <span class="pl-c1">0</span>){
+                <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "象在车和皇后中间\n";</span>
+                <span class="pl-k">return</span> <span class="pl-c1">2</span>;
+            }
+            <span class="pl-k">return</span> <span class="pl-c1">1</span>;
+        }
+        <span class="pl-k">if</span>(<span class="pl-k">float</span> k = e == c ? <span class="pl-c1">0</span> : <span class="pl-c1">float</span>(f - d) / (e - c);
+                <span class="pl-c1">abs</span>(<span class="pl-c1">abs</span>(k) - <span class="pl-c1">1</span>) &lt; <span class="pl-c1">0.0001</span>){
+            <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "象和皇后在同一个斜线\n";</span>
+            <span class="pl-k">float</span> k1 = <span class="pl-c1">float</span>(f - b) / (e - a);
+            <span class="pl-k">if</span>(<span class="pl-c1">abs</span>(k - k1) &lt; <span class="pl-c1">0.0001</span>){
+                <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "斜率相同\n";</span>
+                <span class="pl-k">if</span>((b - d) * (b - f) &lt; <span class="pl-c1">0</span>){
+                    <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "车在象和皇后中间\n";</span>
+                    <span class="pl-k">return</span> <span class="pl-c1">2</span>;
+                }
+            }
+            <span class="pl-k">return</span> <span class="pl-c1">1</span>;
+        }
+        <span class="pl-c"><span class="pl-c">//</span>cout &lt;&lt; "普通情况\n";</span>
+        <span class="pl-k">return</span> <span class="pl-c1">2</span>;
+    }
+};</pre></div>
+<h1>周五</h1>
+<p><a href="https://leetcode.cn/problems/available-captures-for-rook/" rel="nofollow">999. 可以被一步捕获的棋子数</a><br>
+easy，抄答案了</p>
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">class</span> <span class="pl-en">Solution</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">int</span> <span class="pl-en">numRookCaptures</span>(vector&lt;vector&lt;<span class="pl-k">char</span>&gt;&gt;&amp; board) {
+        <span class="pl-k">int</span> cnt = <span class="pl-c1">0</span>, st = <span class="pl-c1">0</span>, ed = <span class="pl-c1">0</span>;
+        <span class="pl-k">int</span> dx[<span class="pl-c1">4</span>] = {<span class="pl-c1">0</span>, <span class="pl-c1">1</span>, <span class="pl-c1">0</span>, -<span class="pl-c1">1</span>};
+        <span class="pl-k">int</span> dy[<span class="pl-c1">4</span>] = {<span class="pl-c1">1</span>, <span class="pl-c1">0</span>, -<span class="pl-c1">1</span>, <span class="pl-c1">0</span>};
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">8</span>; ++i) {
+            <span class="pl-k">for</span> (<span class="pl-k">int</span> j = <span class="pl-c1">0</span>; j &lt; <span class="pl-c1">8</span>; ++j) {
+                <span class="pl-k">if</span> (board[i][j] == <span class="pl-s"><span class="pl-pds">'</span>R<span class="pl-pds">'</span></span>) {
+                    st = i;
+                    ed = j;
+                    <span class="pl-k">break</span>;
+                }
+            }
+        }
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">4</span>; ++i) {
+            <span class="pl-k">for</span> (<span class="pl-k">int</span> step = <span class="pl-c1">0</span>;; ++step) {
+                <span class="pl-k">int</span> tx = st + step * dx[i];
+                <span class="pl-k">int</span> ty = ed + step * dy[i];
+                <span class="pl-k">if</span> (tx &lt; <span class="pl-c1">0</span> || tx &gt;= <span class="pl-c1">8</span> || ty &lt; <span class="pl-c1">0</span> || ty &gt;= <span class="pl-c1">8</span> || board[tx][ty] == <span class="pl-s"><span class="pl-pds">'</span>B<span class="pl-pds">'</span></span>) {
+                    <span class="pl-k">break</span>;
+                }
+                <span class="pl-k">if</span> (board[tx][ty] == <span class="pl-s"><span class="pl-pds">'</span>p<span class="pl-pds">'</span></span>) {
+                    cnt++;
+                    <span class="pl-k">break</span>;
+                }
+            }
+        }
+        <span class="pl-k">return</span> cnt;
+    }
+};</pre></div>
+<h1>周六</h1>
+<p><a href="https://leetcode.cn/problems/knight-probability-in-chessboard/" rel="nofollow">688. 骑士在棋盘上的概率</a><br>
+mid，偷懒了，暴力搜索没写出来，看了答案，挺普通的dp</p>
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">class</span> <span class="pl-en">Solution</span> {
+<span class="pl-k">public:</span>
+    vector&lt;vector&lt;<span class="pl-k">int</span>&gt;&gt; dirs = {{-<span class="pl-c1">2</span>, -<span class="pl-c1">1</span>}, {-<span class="pl-c1">2</span>, <span class="pl-c1">1</span>}, {<span class="pl-c1">2</span>, -<span class="pl-c1">1</span>}, {<span class="pl-c1">2</span>, <span class="pl-c1">1</span>}, {-<span class="pl-c1">1</span>, -<span class="pl-c1">2</span>}, {-<span class="pl-c1">1</span>, <span class="pl-c1">2</span>}, {<span class="pl-c1">1</span>, -<span class="pl-c1">2</span>}, {<span class="pl-c1">1</span>, <span class="pl-c1">2</span>}};
+    <span class="pl-k">double</span> <span class="pl-en">knightProbability</span>(<span class="pl-k">int</span> n, <span class="pl-k">int</span> k, <span class="pl-k">int</span> row, <span class="pl-k">int</span> column) {
+        vector&lt;vector&lt;vector&lt;<span class="pl-k">double</span>&gt;&gt;&gt; <span class="pl-c1">dp</span>(k + <span class="pl-c1">1</span>, vector&lt;vector&lt;<span class="pl-k">double</span>&gt;&gt;(n, vector&lt;<span class="pl-k">double</span>&gt;(n)));
+        <span class="pl-k">for</span> (<span class="pl-k">int</span> step = <span class="pl-c1">0</span>; step &lt;= k; step++) {
+            <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; n; i++) {
+                <span class="pl-k">for</span> (<span class="pl-k">int</span> j = <span class="pl-c1">0</span>; j &lt; n; j++) {
+                    <span class="pl-k">if</span> (step == <span class="pl-c1">0</span>) { dp[step][i][j] = <span class="pl-c1">1</span>; } 
+                    <span class="pl-k">else</span> {
+                        <span class="pl-k">for</span> (<span class="pl-k">auto</span> &amp; dir : dirs) {
+                            <span class="pl-k">int</span> ni = i + dir[<span class="pl-c1">0</span>], nj = j + dir[<span class="pl-c1">1</span>];
+                            <span class="pl-k">if</span> (ni &gt;= <span class="pl-c1">0</span> &amp;&amp; ni &lt; n &amp;&amp; nj &gt;= <span class="pl-c1">0</span> &amp;&amp; nj &lt; n) {
+                                dp[step][i][j] += dp[step - <span class="pl-c1">1</span>][ni][nj] / <span class="pl-c1">8</span>;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        <span class="pl-k">return</span> dp[k][row][column];
     }
 };</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;">请随意转载</div>
