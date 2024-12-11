@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Tue, 10 Dec 2024 10:55:27 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>Java内置类</title><link>https://XLXXLXXLX.github.io/post/Java-nei-zhi-lei.html</link><description>#### Object&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Wed, 11 Dec 2024 15:24:42 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>Java内置类</title><link>https://XLXXLXXLX.github.io/post/Java-nei-zhi-lei.html</link><description>#### Object&#13;
 &#13;
 #### 字符串相关&#13;
 &#13;
@@ -45,6 +45,19 @@ public:&#13;
             res = (res + x) % mod;&#13;
         }&#13;
         return res;&#13;
+    }&#13;
+};&#13;
+```&#13;
+&#13;
+# 周三&#13;
+[2717. 半有序排列](https://leetcode.cn/problems/semi-ordered-permutation)&#13;
+签个到，记一下这个`std::minmax_element`&#13;
+```cpp&#13;
+class Solution {&#13;
+public:&#13;
+    int semiOrderedPermutation(vector&lt;int&gt;&amp; nums) {&#13;
+        auto [first, last] = minmax_element(nums.begin(), nums.end());&#13;
+        return first + nums.size() - 1 - last - (last &lt; first);&#13;
     }&#13;
 };&#13;
 ```。</description><guid isPermaLink="true">https://XLXXLXXLX.github.io/post/2024-nian-di-50-zhou-li-kou-da-qia.html</guid><pubDate>Mon, 09 Dec 2024 04:46:59 +0000</pubDate></item><item><title>std::bitset，定长比特集</title><link>https://XLXXLXXLX.github.io/post/std--bitset%EF%BC%8C-ding-chang-bi-te-ji.html</link><description>[std::bitset - cppreference.com](https://zh.cppreference.com/w/cpp/utility/bitset)&#13;

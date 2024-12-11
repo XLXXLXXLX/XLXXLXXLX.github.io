@@ -53,6 +53,19 @@ public:
         return res;
     }
 };
+```
+
+# 周三
+[2717. 半有序排列](https://leetcode.cn/problems/semi-ordered-permutation)
+签个到，记一下这个`std::minmax_element`
+```cpp
+class Solution {
+public:
+    int semiOrderedPermutation(vector<int>& nums) {
+        auto [first, last] = minmax_element(nums.begin(), nums.end());
+        return first + nums.size() - 1 - last - (last < first);
+    }
+};
 ```。">
 <meta property="og:title" content="2024年第50周力扣打卡">
 <meta property="og:description" content="# 周一
@@ -96,6 +109,19 @@ public:
             res = (res + x) % mod;
         }
         return res;
+    }
+};
+```
+
+# 周三
+[2717. 半有序排列](https://leetcode.cn/problems/semi-ordered-permutation)
+签个到，记一下这个`std::minmax_element`
+```cpp
+class Solution {
+public:
+    int semiOrderedPermutation(vector<int>& nums) {
+        auto [first, last] = minmax_element(nums.begin(), nums.end());
+        return first + nums.size() - 1 - last - (last < first);
     }
 };
 ```。">
@@ -206,6 +232,16 @@ dp，mid</p>
             res = (res + x) % mod;
         }
         <span class="pl-k">return</span> res;
+    }
+};</pre></div>
+<h1>周三</h1>
+<p><a href="https://leetcode.cn/problems/semi-ordered-permutation" rel="nofollow">2717. 半有序排列</a><br>
+签个到，记一下这个<code class="notranslate">std::minmax_element</code></p>
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">class</span> <span class="pl-en">Solution</span> {
+<span class="pl-k">public:</span>
+    <span class="pl-k">int</span> <span class="pl-en">semiOrderedPermutation</span>(vector&lt;<span class="pl-k">int</span>&gt;&amp; nums) {
+        <span class="pl-k">auto</span> [first, last] = <span class="pl-c1">minmax_element</span>(nums.<span class="pl-c1">begin</span>(), nums.<span class="pl-c1">end</span>());
+        <span class="pl-k">return</span> first + nums.<span class="pl-c1">size</span>() - <span class="pl-c1">1</span> - last - (last &lt; first);
     }
 };</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;">请随意转载</div>
