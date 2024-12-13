@@ -275,6 +275,27 @@ hard，但感觉难度只是普通mid，吐槽一下<code class="notranslate">st
         }
         <span class="pl-k">return</span> ans;
     }
+};</pre></div>
+<h1>周五</h1>
+<p><a href="https://leetcode.cn/problems/final-array-state-after-k-multiplication-operations-i/" rel="nofollow">3264. K 次乘运算后的最终数组 I</a><br>
+感觉<code class="notranslate">std::make_heap</code>比<code class="notranslate">std::priority_queue</code>好用</p>
+<div class="highlight highlight-source-c++"><pre class="notranslate"><span class="pl-k">class</span> <span class="pl-en">Solution</span> {
+<span class="pl-k">public:</span>
+    vector&lt;<span class="pl-k">int</span>&gt; <span class="pl-en">getFinalState</span>(vector&lt;<span class="pl-k">int</span>&gt;&amp; nums, <span class="pl-k">int</span> k, <span class="pl-k">int</span> multiplier) {
+        <span class="pl-k">if</span>(multiplier == <span class="pl-c1">1</span>){ <span class="pl-k">return</span> nums; }
+        <span class="pl-k">int</span> len  = nums.<span class="pl-c1">size</span>();
+        vector&lt;<span class="pl-k">int</span>&gt;<span class="pl-c1">h</span>(len);
+        <span class="pl-c1">iota</span>(h.<span class="pl-c1">begin</span>(), h.<span class="pl-c1">end</span>(), <span class="pl-c1">0</span>);
+        <span class="pl-k">auto</span> cmp = [&amp;nums](<span class="pl-k">int</span> a, <span class="pl-k">int</span> b){
+            <span class="pl-k">return</span> nums[a] &gt; nums[b] || (nums[a] == nums[b] &amp;&amp; a &gt; b);
+        };
+        <span class="pl-k">for</span> (<span class="pl-k">auto</span> _{k}; _--;) {
+            <span class="pl-c1">make_heap</span>(h.<span class="pl-c1">begin</span>(), h.<span class="pl-c1">end</span>(), cmp);
+            <span class="pl-c1">pop_heap</span>(h.<span class="pl-c1">begin</span>(), h.<span class="pl-c1">end</span>(), cmp);
+            nums[h[len - <span class="pl-c1">1</span>]] *= multiplier;
+        }
+        <span class="pl-k">return</span> nums;
+    }
 };</pre></div></div>
 <div style="font-size:small;margin-top:8px;float:right;">请随意转载</div>
 
