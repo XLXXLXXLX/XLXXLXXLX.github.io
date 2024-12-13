@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Thu, 12 Dec 2024 04:01:14 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>Java内置类</title><link>https://XLXXLXXLX.github.io/post/Java-nei-zhi-lei.html</link><description>#### Object&#13;
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" version="2.0"><channel><title>XLX的博客</title><link>https://XLXXLXXLX.github.io</link><description>紧急换电缆，循环追捕令</description><copyright>XLX的博客</copyright><docs>http://www.rssboard.org/rss-specification</docs><generator>python-feedgen</generator><image><url>https://github.githubassets.com/favicons/favicon.svg</url><title>avatar</title><link>https://XLXXLXXLX.github.io</link></image><lastBuildDate>Fri, 13 Dec 2024 03:43:49 +0000</lastBuildDate><managingEditor>XLX的博客</managingEditor><ttl>60</ttl><webMaster>XLX的博客</webMaster><item><title>Java内置类</title><link>https://XLXXLXXLX.github.io/post/Java-nei-zhi-lei.html</link><description>#### Object&#13;
 &#13;
 #### 字符串相关&#13;
 &#13;
@@ -113,7 +113,7 @@ hard，但感觉难度只是普通mid，吐槽一下`std::priority_queue`的api�
 &#13;
 ### 课程&#13;
 - [ ] 把表达与交流的考勤补一下&#13;
-- [ ] 把欠的作业补一下&#13;
+- [x] 把欠的作业补一下&#13;
 &#13;
 ### 自学&#13;
 - [ ] 把Java语法全部过完，搞个SpringBoot项目（开个头就行）&#13;
@@ -124,7 +124,7 @@ hard，但感觉难度只是普通mid，吐槽一下`std::priority_queue`的api�
 &#13;
 ### 其他&#13;
 - [x] 把三方的手续搞完&#13;
-- [ ] 等华子开奖，看看能给多少&#13;
+- [x] 等华子开奖，看看能给多少&#13;
 &#13;
 。</description><guid isPermaLink="true">https://XLXXLXXLX.github.io/post/12-yue-ji-hua.html</guid><pubDate>Thu, 28 Nov 2024 05:57:13 +0000</pubDate></item><item><title>Shell 脚本</title><link>https://XLXXLXXLX.github.io/post/Shell%20-jiao-ben.html</link><description>为了克服使用shell脚本“每次用到每次还要再查”的现状，尝试做一些记录，虽然还是参考[菜鸟教程](https://www.runoob.com/linux/linux-shell-process-control.html)（）&#13;
 &#13;
