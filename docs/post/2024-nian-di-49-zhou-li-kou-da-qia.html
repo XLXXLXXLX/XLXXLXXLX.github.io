@@ -154,12 +154,12 @@ hard，头痛牙痛，脑袋蒙蒙，知道要用回溯/搜索，但就是搞不
     <span class="pl-c"><span class="pl-c">//</span> 计算位于 (x0,y0) 的棋子在 dirs 这些方向上的所有合法移动</span>
     vector&lt;Move&gt; <span class="pl-en">generate_moves</span>(<span class="pl-k">int</span> x0, <span class="pl-k">int</span> y0, vector&lt;pair&lt;<span class="pl-k">int</span>, <span class="pl-k">int</span>&gt;&gt;&amp; dirs) {
         <span class="pl-k">const</span> <span class="pl-k">int</span> SIZE = <span class="pl-c1">8</span>;
-        vector&lt;Move&gt; moves = {{x0, <span class="pl-c1">y0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>}}; <span class="pl-c"><span class="pl-c">//</span> 原地不动</span>
+        vector&lt;Move&gt; moves = {{x0, y0, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>, <span class="pl-c1">0</span>}}; <span class="pl-c"><span class="pl-c">//</span> 原地不动</span>
         <span class="pl-k">for</span> (<span class="pl-k">auto</span> [dx, dy] : dirs) {
             <span class="pl-c"><span class="pl-c">//</span> 往 d 方向走 1,2,3,... 步</span>
-            <span class="pl-k">int</span> x = x0 + dx, y = <span class="pl-c1">y0</span> + dy;
+            <span class="pl-k">int</span> x = x0 + dx, y = y0 + dy;
             <span class="pl-k">for</span> (<span class="pl-k">int</span> step = <span class="pl-c1">1</span>; <span class="pl-c1">0</span> &lt; x &amp;&amp; x &lt;= SIZE &amp;&amp; <span class="pl-c1">0</span> &lt; y &amp;&amp; y &lt;= SIZE; step++) {
-                moves.<span class="pl-c1">emplace_back</span>(x0, <span class="pl-c1">y0</span>, dx, dy, step);
+                moves.<span class="pl-c1">emplace_back</span>(x0, y0, dx, dy, step);
                 x += dx;
                 y += dy;
             }
@@ -169,19 +169,19 @@ hard，头痛牙痛，脑袋蒙蒙，知道要用回溯/搜索，但就是搞不
 
     <span class="pl-c"><span class="pl-c">//</span> 判断两个移动是否合法，即不存在同一时刻两个棋子重叠的情况</span>
     <span class="pl-k">bool</span> <span class="pl-en">is_valid</span>(Move&amp; m1, Move&amp; m2) {
-        <span class="pl-k">int</span> x1 = m1.<span class="pl-smi">x0</span>, <span class="pl-c1">y1</span> = m1.<span class="pl-smi">y0</span>;
+        <span class="pl-k">int</span> x1 = m1.<span class="pl-smi">x0</span>, y1 = m1.<span class="pl-smi">y0</span>;
         <span class="pl-k">int</span> x2 = m2.<span class="pl-smi">x0</span>, y2 = m2.<span class="pl-smi">y0</span>;
         <span class="pl-k">for</span> (<span class="pl-k">int</span> i = <span class="pl-c1">0</span>; i &lt; <span class="pl-c1">max</span>(m1.<span class="pl-smi">step</span>, m2.<span class="pl-smi">step</span>); i++) {
             <span class="pl-c"><span class="pl-c">//</span> 每一秒走一步</span>
             <span class="pl-k">if</span> (i &lt; m1.<span class="pl-smi">step</span>) {
                 x1 += m1.<span class="pl-smi">dx</span>;
-                <span class="pl-c1">y1</span> += m1.<span class="pl-smi">dy</span>;
+                y1 += m1.<span class="pl-smi">dy</span>;
             }
             <span class="pl-k">if</span> (i &lt; m2.<span class="pl-smi">step</span>) {
                 x2 += m2.<span class="pl-smi">dx</span>;
                 y2 += m2.<span class="pl-smi">dy</span>;
             }
-            <span class="pl-k">if</span> (x1 == x2 &amp;&amp; <span class="pl-c1">y1</span> == y2) { <span class="pl-c"><span class="pl-c">//</span> 重叠</span>
+            <span class="pl-k">if</span> (x1 == x2 &amp;&amp; y1 == y2) { <span class="pl-c"><span class="pl-c">//</span> 重叠</span>
                 <span class="pl-k">return</span> <span class="pl-c1">false</span>;
             }
         }
