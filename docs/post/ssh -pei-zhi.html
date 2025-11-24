@@ -31,7 +31,7 @@ ssh ${target}  -T -c aes128-gcm@openssh.com -o ProxyCommand='nc -X 5 -x ${ip}:${
 <meta property="og:url" content="https://XLXXLXXLX.github.io/post/ssh%20-pei-zhi.html">
 <meta property="og:image" content="https://github.githubassets.com/favicons/favicon.svg">
 <title>ssh 配置</title>
-<link href="//unpkg.com/@wooorm/starry-night@2.1.1/style/both.css" rel="stylesheet" />
+
 
 
 </head>
@@ -98,7 +98,8 @@ body{box-sizing: border-box;min-width: 200px;max-width: 900px;margin: 20px auto;
 </div>
     <div id="content">
 <div class="markdown-body" id="postBody"><p>生成ssh密钥对：</p>
-<div class="highlight highlight-source-shell"><pre class="notranslate">ssh-keygen -t rsa -b 4096 -C <span class="pl-s"><span class="pl-pds">"</span>miasanmia147@gmail.com<span class="pl-pds">"</span></span></pre></div>
+<pre lang="sh" class="notranslate"><code class="notranslate">ssh-keygen -t rsa -b 4096 -C "miasanmia147@gmail.com"
+</code></pre>
 <p>ssh使用代理：</p>
 <pre class="notranslate"><code class="notranslate">ssh ${target}  -T -c aes128-gcm@openssh.com -o ProxyCommand="nc -X 5 -x ${ip}:${port} %h %p" -o Compression=no -x"
 </code></pre></div>
